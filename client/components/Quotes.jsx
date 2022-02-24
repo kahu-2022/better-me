@@ -1,36 +1,34 @@
 import React, { useState } from "react";
-import { getQuotes } from "../apis/quotes";
 
-// import { getQuotes } from "../api/quotes";
+import { getQuotes } from "../apis/quotes";
 
 function Quotes() {
   const [quotes, setQuotes] = useState([]);
 
   const handleClick = () => {
-    console.log(quotes);
-    getQuotes(quotes)
+    console.log("clicked");
+    getQuotes()
       .then((resultsApi) => {
-        console.log(resultsApi);
+        console.log(quotes);
         setQuotes(resultsApi);
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
-  return (
-    <>
-      <h2>Quotes</h2>
 
-      {/* {quotes.map((item) => {
-          item.text;
-        })} */}
+  return (
+    <div>
+      <button onClick={handleClick}></button>
       <ul>
+        {/* {quotes} */}
         {quotes.map((elem) => (
-          <li>{elem.text}</li>
+          <li key={elem.text}>
+            {elem.text} - {elem.author}
+          </li>
         ))}
       </ul>
-      <button onClick={handleClick}>Get quotes </button>
-    </>
+    </div>
   );
 }
 
