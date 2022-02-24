@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import { getQuotes } from "../apis/quotes";
 
 function Quotes() {
+  const randomNum = Math.floor(Math.random() * 1000);
+
   const [quotes, setQuotes] = useState([]);
 
   const handleClick = () => {
     console.log("clicked");
     getQuotes()
       .then((resultsApi) => {
-        console.log(quotes);
-        setQuotes(resultsApi);
+        console.log("final", finalQuotes);
+        let finalQuotes = resultsApi[randomNum];
+        setQuotes(finalQuotes);
       })
       .catch((err) => {
         console.log(err.message);
@@ -20,14 +23,9 @@ function Quotes() {
   return (
     <div>
       <button onClick={handleClick}></button>
-      <ul>
-        {/* {quotes} */}
-        {quotes.map((elem) => (
-          <li key={elem.text}>
-            {elem.text} - {elem.author}
-          </li>
-        ))}
-      </ul>
+      <h3>
+        {quotes.text} - {quotes.author}
+      </h3>
     </div>
   );
 }
