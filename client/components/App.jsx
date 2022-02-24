@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
-import AddTodo from './Login'
+import React, { useEffect } from "react";
+import AddTodo from "./Login";
+import request from "superagent";
 
-function App () {
-  useEffect(() => {
-
-  }, [])
+function App() {
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -14,9 +13,8 @@ function App () {
       </header>
       <section className="main"></section>
       <footer className="footer"></footer>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;

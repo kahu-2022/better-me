@@ -37,15 +37,20 @@ function getUserIfExists(user, db = connection) {
       if (res.length === 0) {
         return addUserwithoutAccount(user).then((idArr) => {
           console.log(idArr);
-          return idArr[0];
+          user.id = idArr[0];
+          return user;
         });
       } else {
         return res;
       }
     });
 }
-function addUserwithoutAccount(person, db = connection) {
-  return db("users").insert(snakeCase(person));
+function addUserwithoutAccount(newUser, db = connection) {
+  return generateHash(newUser.password).then((passwordHash) => {
+    newUser.hash = passwordHash;
+    delete newUser.password;
+    return db("users").insert(newUser, "id");
+  });
 }
 
 module.exports = {
