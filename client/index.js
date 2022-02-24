@@ -4,6 +4,7 @@ import { Auth0Provider } from '@auth0/auth0-react'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import reducers from './reducers'
 import App from './components/App'
@@ -20,7 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     redirectUri={window.location.origin}
     audience='https://betterme/api'>
       <Provider store={store}>
-        <App />
+        <Router>
+         <App />
+        </Router>
       </Provider>
     </Auth0Provider>,
     document.getElementById('app')
