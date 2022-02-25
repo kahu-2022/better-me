@@ -1,34 +1,34 @@
 import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import Login from './Login'
-import Register from './Register'
-import { cacheUser } from '../auth0-utils'
-import { useAuth0 } from '@auth0/auth0-react'
-import { Routes, Route } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react' 
+import Logout from './Logout'
+import Profile from './Profile'
+
+
+
+
+// import { Routes, Route } from 'react-router-dom'
 import Nav from './Nav'
-import Home from './Home'
+import HomeAuth from './HomeAuth'
+import HomeNoAuth from './HomeNoAuth'
 
 
 
 function App () {
 
-  // useEffect(() => {
-
-  // }, [])
-
-  cacheUser(useAuth0)
-
   return (
     <>
-      {/* <Register /> */}
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/home' element={<Home />} />
-      </Routes>
-
-      
+      {/* <Login />
+      <Logout /> */}
+      <Nav />
+      <Profile />
+      <HomeAuth />
+      <HomeNoAuth />
     </>
+    
+    
+    
   )
 
 

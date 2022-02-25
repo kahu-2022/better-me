@@ -1,37 +1,16 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
-function Login (props) {
-  
-    return (
-  
-        <Container id="main-container" className=" d-flex justify-content-center align-items-center" fluid>
-          <Form id="signin-form" className="text-center p-3 w-60">
-            <p className="md-3 fs-3 fw-normal">Sign in</p>
-            <Form.Group controlId="signin-email">
-              <Form.Control type="email" size="lg" placeholder="email address" className="position-relative" />
-            </Form.Group>
+const Login = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-            <Form.Group className="mb-3" controlId="signin-password">
-              <Form.Control type="password" size="lg" placeholder="password" className="position-relative" />
-            </Form.Group>
-
-            <Form.Group className="d-flex justify-content-center mb-4" controlId="not-registered">
-              <p>Not registered? <Link to="/register">Register Here</Link></p>
-            </Form.Group>
-
-            <div className="d-flex">
-              <Button variant="primary" size="lg">Sign in</Button>
-            </div>
-          </Form>
-        </Container>
-       
-       
-    )
-  
+  return (
+    !isAuthenticated && (
+    <button onClick={() => loginWithRedirect()}>
+      Log in
+    </button>
+  )
+  )
 }
 
 export default Login

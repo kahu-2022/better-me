@@ -1,52 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
+import Login from './Login'
+import Logout from './Logout'
+import { useAuth0 } from '@auth0/auth0-react' 
 
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+const Nav = () => {
 
-const NavGroup = styled.nav`
-  float: right;
-`
+    const { user } = useAuth0()
 
-const NavLink = styled(Link)`
-  margin-right: 30px;
-`
-
-function Nav () {
-  const { logout, loginWithRedirect } = useAuth0()
-  // TODO: call the useAuth0 hook and destructure logout and loginWithRedirect
-  function handleLogoff (e) {
-    e.preventDefault()
-    logout()
-  }
-
-  function handleRegister (e) {
-    e.preventDefault()
-    loginWithRedirect({
-      redirectUri: `${window.location.origin}/register`
-    })
-  }
-
-  function handleSignIn (e) {
-    e.preventDefault()
-    loginWithRedirect()
-  }
-  return (
-    <>
-      <NavGroup>
-        <NavLink to='/'>Home</NavLink>
-        <IfAuthenticated>
-          <a href='/' onClick={handleLogoff}>Log off</a>
-        </IfAuthenticated>
-        <IfNotAuthenticated>
-          <a href='/register' onClick={handleRegister}>Register</a>
-          <a href='/login' onClick={handleSignIn}>Sign in</a>
-        </IfNotAuthenticated>
-      </NavGroup>
-      <h1>BetterMe FTW!</h1>
-    </>
-  )
+    return (
+        <>
+            <Login />
+            <Logout />
+        </>
+    )
 }
 
 export default Nav
