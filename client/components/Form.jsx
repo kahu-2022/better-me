@@ -25,11 +25,6 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
     setInputText("");
   };
 
-  // const submitTodoHandler = (evt) => {
-  //   evt.preventDefault();
-  //   setTodos(dispatch(thunkAddNewGoal(inputText)));
-  // };
-
   // const statusHandle = (evt) => {
   //   setStatus(evt.target.value);
   // };
