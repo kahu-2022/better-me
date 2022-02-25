@@ -60,8 +60,6 @@ function App() {
   return (
     <>
       <header className="header">
-        <h1>todos</h1>
-
         <Form
           inputText={inputText}
           setInputText={setInputText}

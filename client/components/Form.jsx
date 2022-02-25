@@ -20,14 +20,19 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
           completed: false,
         },
       ],
-      dispatch(thunkAddNewGoal(newGoal))
+      dispatch(thunkAddNewGoal(inputText))
     );
     setInputText("");
   };
 
-  const statusHandle = (evt) => {
-    setStatus(evt.target.value);
-  };
+  // const submitTodoHandler = (evt) => {
+  //   evt.preventDefault();
+  //   setTodos(dispatch(thunkAddNewGoal(inputText)));
+  // };
+
+  // const statusHandle = (evt) => {
+  //   setStatus(evt.target.value);
+  // };
 
   return (
     <div>
@@ -39,7 +44,11 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
           className="todo-input"
           onChange={inputTextHandler}
         />
-        <button onClick={statusHandle} className="todo-input" type="submit">
+        <button
+          onClick={submitTodoHandler}
+          className="todo-input"
+          type="submit"
+        >
           Test
         </button>
       </form>

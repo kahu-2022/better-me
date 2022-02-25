@@ -1,11 +1,19 @@
 import { fetchAllGoals, postNewGoals } from "../apis/goals";
 
 export const ADD_GOALS = "ADD_GOALS";
+export const GET_GOALS = "GET_GOALS";
 
-export function addGoals(goalArr) {
+export function getGoals(goalArr) {
+  return {
+    type: GET_GOALS,
+    goalArr,
+  };
+}
+
+export function addGoals(goals) {
   return {
     type: ADD_GOALS,
-    goalArr,
+    goals,
   };
 }
 
@@ -14,17 +22,18 @@ export function addGoals(goalArr) {
 export function thunkGetAllGoals() {
   return (dispatch) => {
     fetchAllGoals().then((goals) => {
-      dispatch(addGoals(goals));
+      dispatch(getGoals(goals));
     });
   };
 }
 
-// thunk to add Goal
-export function thunkAddNewGoal(goals, newGoal) {
-  newGoal = { ...goals, details: inputText, completed: false };
+export function thunkAddNewGoal(goals) {
+  console.log("thunk", typeof goals);
+  goals = { details: goals.details, completed: goals.completed };
 
   return (dispatch) => {
-    postNewGoals(newGoal).then((goals) => {
+    console.log("afterThunk", typeof goals);
+    postNewGoals(goals).then((goals) => {
       dispatch(addGoals(goals));
     });
   };
