@@ -11,7 +11,6 @@ function Quotes() {
     console.log("clicked");
     getQuotes()
       .then((resultsApi) => {
-        console.log("final", finalQuotes);
         let finalQuotes = resultsApi[randomNum];
         setQuotes(finalQuotes);
       })
