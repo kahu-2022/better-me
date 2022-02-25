@@ -1,11 +1,16 @@
 import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 
-function AddTodo (props) {
+const Login = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+
   return (
-    <>
-      {/* <input className="new-todo" placeholder="What needs to be done?" autoFocus={true} /> */}
-    </>
+    !isAuthenticated && (
+    <button onClick={() => loginWithRedirect()}>
+      Log in
+    </button>
+  )
   )
 }
 
-export default AddTodo
+export default Login
