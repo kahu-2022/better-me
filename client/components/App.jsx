@@ -24,6 +24,7 @@ function App () {
       <Routes>
         <Route path='/mygoals' element={<MyGoals />} />
         <Route path='/completed' element={<CompletedGoals />} />
+      
       </Routes>
       
     </>

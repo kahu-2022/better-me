@@ -16,7 +16,7 @@ function HomeAuth() {
 
     <>
         
-        
+        <h3>Home page with Auth!</h3>
         
     </>
     )

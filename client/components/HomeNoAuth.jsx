@@ -9,7 +9,7 @@ const HomeNoAuth = () => {
     return (
         !isAuthenticated && (
         <>
-            {/* <h1>Home page without Auth</h1> */}
+            <h3>Home page without Auth :(</h3>
             
         </>
     )
