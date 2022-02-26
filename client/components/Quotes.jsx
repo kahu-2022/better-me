@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { getQuotes } from "../apis/quotes";
 
@@ -6,6 +6,10 @@ function Quotes() {
   const randomNum = Math.floor(Math.random() * 1000);
 
   const [quotes, setQuotes] = useState([]);
+
+  useEffect(() => {
+    handleClick();
+  }, []);
 
   const handleClick = () => {
     console.log("clicked");
@@ -21,10 +25,10 @@ function Quotes() {
 
   return (
     <div>
-      <button onClick={handleClick}></button>
-      <h3>
-        {quotes.text} - {quotes.author}
-      </h3>
+      {/* <button onClick={handleClick}></button> */}
+      <h4>
+        {quotes.text} <em>-{quotes.author}</em>
+      </h4>
     </div>
   );
 }

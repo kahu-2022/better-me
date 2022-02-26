@@ -2,7 +2,7 @@ const connection = require("./connection");
 
 function addGoals(goals, db = connection) {
   // const objGoals = JSON.parse(goals);
-  console.log("Db func", goals);
+  // console.log("Db func", goals);
   return db("goals").insert(goals);
 }
 

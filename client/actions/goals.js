@@ -28,7 +28,7 @@ export function thunkGetAllGoals() {
 }
 
 export function thunkAddNewGoal(goals) {
-  console.log("thunk", typeof goals);
+  console.log("thunk", goals);
   goals = { details: goals.details, completed: goals.completed };
 
   return (dispatch) => {

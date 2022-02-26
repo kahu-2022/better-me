@@ -5,9 +5,9 @@ export function fetchAllGoals() {
 }
 
 export function postNewGoals(goals) {
-  console.log("apigoals", typeof goals);
+  console.log("apigoals", goals);
   return request
     .post("/api/v1/goals")
     .send(goals)
-    .then((res) => console.log("res.body", res.body));
+    .then((res) => res.body);
 }
