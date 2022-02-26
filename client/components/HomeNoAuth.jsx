@@ -1,5 +1,5 @@
 import React from 'react'
-import Login from './Login'
+// import Login from './SignIn'
 import { useAuth0 } from '@auth0/auth0-react' 
 
 const HomeNoAuth = () => {
@@ -9,7 +9,7 @@ const HomeNoAuth = () => {
     return (
         !isAuthenticated && (
         <>
-            <h1>Home page without Auth</h1>
+            {/* <h1>Home page without Auth</h1> */}
             
         </>
     )
