@@ -16,6 +16,8 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 
+// const redirect = 'http://localhost:3000/home'
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
 

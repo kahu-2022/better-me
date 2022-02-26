@@ -13,10 +13,9 @@ const NavAuth = () => {
     return (
         isAuthenticated && (
         <>
-            <Link to='/'>Resolute.   </Link>
+            <Link to='/home'>Resolute.</Link>
             {/* <p>Current Goals</p>
-            <p>Completed Goals</p> */}
-            
+            <p>Completed Goals</p> */}    
             <Link to='/mygoals'>My Goals</Link>
             <Link to='/completed'>Completed Goals</Link>
 
