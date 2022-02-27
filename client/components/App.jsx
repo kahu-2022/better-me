@@ -9,6 +9,10 @@ import HomeAuth from './HomeAuth'
 import HomeNoAuth from './HomeNoAuth'
 import CompletedGoals from './CompletedGoals'
 import MyGoals from './MyGoals'
+import Divider from '@mui/material/Divider'
+import { Margin } from '@mui/icons-material'
+import Footer from './Footer'
+
 
 
 
@@ -18,15 +22,16 @@ function App () {
     <>
      
       <NavAuth />
-      <NavNoAuth />
+      {/* <NavNoAuth /> */}
+      <Divider sx={{ background: '#2C3333', mt: 3.5 }} variant="middle" />
       <HomeAuth />
-      <HomeNoAuth />
+      {/* <HomeNoAuth /> */}
       <Routes>
         <Route path='/mygoals' element={<MyGoals />} />
         <Route path='/completed' element={<CompletedGoals />} />
-      
+  
       </Routes>
-      
+      <Footer/>
     </>
     
     

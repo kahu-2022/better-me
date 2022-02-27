@@ -6,17 +6,17 @@ import { Link } from 'react-router-dom'
 
 const NavNoAuth = () => {
 
-    const { isAuthenticated } = useAuth0()
+    // const { isAuthenticated } = useAuth0()
 
     return (
-        !isAuthenticated && (
+        // !isAuthenticated && (
         <>
             <Link to='/'>Resolute.   </Link>
             <SignIn />
             <SignOut />
         </>
         )
-    )
+    // )
 }
 
 export default NavNoAuth

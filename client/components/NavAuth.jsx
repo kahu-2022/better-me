@@ -8,24 +8,33 @@ import CompletedGoals from './CompletedGoals'
 
 const NavAuth = () => {
 
-    const { isAuthenticated } = useAuth0()
-
+    // const { isAuthenticated } = useAuth0()
+//  let authStat = true;
     return (
-        isAuthenticated && (
-        <>
-            <Link to='/'>Resolute.   </Link>
-            {/* <p>Current Goals</p>
-            <p>Completed Goals</p> */}
+        // isAuthenticated && (
+        <div className="nav-container"> 
+            <div>
+                <Link className="resolute-link" to='/'>Resolute. </Link>
+            </div>
+            <div className="links-container">
+                <div className="myGoals-container"> 
+                <Link to='/mygoals'>My Goals</Link>
+                </div>
             
-            <Link to='/mygoals'>My Goals</Link>
-            <Link to='/completed'>Completed Goals</Link>
+                <div className="completed-container">
+                <Link to='/completed'>Completed </Link>
+                </div>
+            </div>
+            
+            <div className="auth-button-container"> 
+                <SignOut/>
+            </div>
 
-
-            <SignIn />
-            <SignOut />
-        </>
+            
+            {/* <SignIn/> */}
+        </div>
         )
-    )
+    // ) 
 }
 
 export default NavAuth

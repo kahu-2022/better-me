@@ -8,19 +8,49 @@ import { useAuth0 } from '@auth0/auth0-react'
 // import CompletedGoals from './CompletedGoals'
 // import MyGoals from './MyGoals'
 
+import TextField from '@mui/material/TextField'
+import { alignProperty } from '@mui/material/styles/cssUtils'
+import { textAlign } from '@mui/system'
+import { AlignHorizontalCenter } from '@mui/icons-material'
+
 function HomeAuth() {
-    const { isAuthenticated } = useAuth0();
+    // const { isAuthenticated } = useAuth0();
 
     return(
-    isAuthenticated && (
+    // isAuthenticated && (
 
     <>
         
-        <h3>Home page with Auth!</h3>
+        {/* <TextField fullWidth placeholder="Enter your goal here..." id="fullWidth" 
+        InputLabelProps={{ shrink: true  }} sx={{maxwidth: '100%', boxShadow: 4 }} inputProps={{ style: {textAlign: 'center' }}} /> */}
+
+        <form>
+            <input className="goalInput-text-box" type="text" placeholder="Enter your goal here..."></input>
+        </form>
+
+        <div className="goals-card">
+
+            {/* To display goals */}
+            <div>
+
+            </div>
+
+            <div>
+                <button className="goals-card-button">
+                    Submit
+                </button>
+            </div>
+
+            
+
+        </div>
+
+
+        {console.log('Home page with auth')}
         
     </>
     )
-    )
+    // )
 }
 
 export default HomeAuth

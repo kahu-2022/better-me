@@ -3,14 +3,20 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 
 const SignOut = () => {
-    const { logout, isAuthenticated } = useAuth0();
+    // const { logout, isAuthenticated } = useAuth0();
     return (
-        isAuthenticated && (
-        <button className="auth-button" onClick={() => logout()}>
+        // isAuthenticated && (
+        // <button className="auth-button" onClick={() => logout()}>
+        //     Sign Out
+        // </button>
+
+        // *temp button*
+        <button className="auth-button">
             Sign Out
         </button>
+
     )
-    )
+    // )
 }
 
 export default SignOut
