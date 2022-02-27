@@ -13,7 +13,7 @@ function App() {
   const [inputText, setInputText] = useState(""); // state for form to add new goal
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([]);
+  const [filteredGoals, setFilteredGoals] = useState([]);
 
   // On load when the app runs
   useEffect(() => {
@@ -31,13 +31,13 @@ function App() {
   const filterHandler = () => {
     switch (status) {
       case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        setFilteredGoals(todos.filter((todo) => todo.completed === true));
         break;
       case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.uncompleted === false));
+        setFilteredGoals(todos.filter((todo) => todo.uncompleted === false));
         break;
       default:
-        setFilteredTodos(todos);
+        setFilteredGoals(todos);
     }
   };
 
@@ -68,7 +68,7 @@ function App() {
           setStatus={setStatus}
         />
         <GoalList
-          filteredTodos={filteredTodos}
+          filteredGoals={filteredGoals}
           setTodos={setTodos}
           todos={todos}
         />

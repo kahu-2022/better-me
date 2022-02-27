@@ -10,7 +10,7 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
     setInputText(evt.target.value);
   };
 
-  const submitTodoHandler = (evt) => {
+  const submitGoalHandler = (evt) => {
     evt.preventDefault();
     setTodos(
       [
@@ -40,7 +40,7 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
           onChange={inputTextHandler}
         />
         <button
-          onClick={submitTodoHandler}
+          onClick={submitGoalHandler}
           className="todo-input"
           type="submit"
         >

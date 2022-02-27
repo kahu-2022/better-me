@@ -5,6 +5,7 @@ function SetGoals({ details, setTodos, todo, todos }) {
     setTodos(todos.filter((elem) => elem.details !== todo.details));
   };
 
+  // this part is for my Goals and to change state to complete
   const completeHandler = () => {
     setTodos(
       todos.map((item) => {
