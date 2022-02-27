@@ -40,12 +40,12 @@ function HomeAuth() {
                     Submit
                 </button>
             </div>
-
-            
-
         </div>
 
-
+        
+            {/* <iframe className="borat" src="https://giphy.com/embed/Od0QRnzwRBYmDU3eEO" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> */}
+        
+        
         {console.log('Home page with auth')}
         
     </>
