@@ -5,8 +5,20 @@ import { Link } from 'react-router-dom'
 const MyGoals = () => {
     return (
         <>
-            {console.log('Current Goals')}
-            {/* <Link to='/mygoals'>My Goals</Link> */}
+
+        <div className="mygoals-card">
+
+            <div className="mygoals-header">
+                <h3>My Goals</h3>
+            </div>
+
+            {/* To display goals */}
+            <div></div>
+
+        </div>
+
+        {console.log('Current Goals')}
+            
             
         </>
     )
