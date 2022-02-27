@@ -5,6 +5,17 @@ import "./App.css";
 import Quotes from "./Quotes";
 import Form from "./Form";
 import GoalList from "./GoalList";
+import React, { useEffect } from "react";
+
+import { Routes, Route } from "react-router-dom";
+import NavNoAuth from "./NavNoAuth";
+import NavAuth from "./NavAuth";
+import HomeAuth from "./HomeAuth";
+import HomeNoAuth from "./HomeNoAuth";
+import CompletedGoals from "./CompletedGoals";
+import MyGoals from "./MyGoals";
+import Footer from "./Footer";
+import Divider from "@mui/material/Divider";
 
 import { thunkGetAllGoals } from "../actions/goals";
 
@@ -56,6 +67,9 @@ function App() {
   };
 
   // save to global state
+  // const currentRoute = browser.windows.getCurrent()
+
+  // if (currentRoute == )
 
   return (
     <>
@@ -83,6 +97,20 @@ function App() {
       </footer>
       <section className="main"></section>
       <footer className="footer"></footer>
+
+      <NavAuth />
+      <NavNoAuth />
+      {/* <HomeAuth /> */}
+      <Divider sx={{ background: "#2C3333", mt: 3.5 }} variant="middle" />
+      <HomeNoAuth />
+      <Routes>
+        {/* <Route path='/' element={<HomeNoAuth />} /> */}
+        <Route path="/" element={<HomeAuth />} />
+        <Route path="/mygoals" element={<MyGoals />} />
+        <Route path="/completed" element={<CompletedGoals />} />
+      </Routes>
+
+      <Footer />
     </>
   );
 }
