@@ -28,12 +28,12 @@ export function thunkGetAllGoals() {
 }
 
 export function thunkAddNewGoal(goals) {
-  console.log("thunk", goals);
-  goals = { details: goals.details, completed: goals.completed };
+  console.log("thunk", typeof goals, goals);
+  const newGoals = { details: goals, completed: false };
 
   return (dispatch) => {
-    console.log("afterThunk", typeof goals);
-    postNewGoals(goals).then((goals) => {
+    console.log("afterThunk", goals);
+    postNewGoals(newGoals).then((goals) => {
       dispatch(addGoals(goals));
     });
   };
