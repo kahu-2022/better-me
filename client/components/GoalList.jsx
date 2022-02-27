@@ -14,7 +14,7 @@ function GoalList({ todos, setTodos, filteredTodos }) {
           todos={todos}
           // key={todo.id}
           todo={todo}
-          text={todo.text}
+          details={todo.details}
           filteredTodos={filteredTodos}
         />
       ))}

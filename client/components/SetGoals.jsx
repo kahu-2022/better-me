@@ -1,14 +1,14 @@
 import React from "react";
 
-function SetGoals({ text, setTodos, todo, todos }) {
+function SetGoals({ details, setTodos, todo, todos }) {
   const deleteHandler = () => {
-    setTodos(todos.filter((elem) => elem.text !== todo.text));
+    setTodos(todos.filter((elem) => elem.details !== todo.details));
   };
 
   const completeHandler = () => {
     setTodos(
       todos.map((item) => {
-        if (item.text === todo.text) {
+        if (item.details === todo.details) {
           return {
             ...item,
             completed: !item.completed,
@@ -22,7 +22,7 @@ function SetGoals({ text, setTodos, todo, todos }) {
   return (
     <div className="todo">
       <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-        {text}
+        {details}
       </li>
       <button onClick={completeHandler} className="complete-btn">
         <i className="fas fa-check"></i>
