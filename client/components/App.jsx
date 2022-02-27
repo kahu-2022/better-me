@@ -23,15 +23,19 @@ function App () {
      
       <NavAuth />
       <NavNoAuth />
-      {/* <HomeAuth />
-      <HomeNoAuth /> */}
+      {/* <HomeAuth /> */}
+      <HomeNoAuth />
       <Routes>
           
-          <Route path='/' element={<HomeNoAuth />} />
-          <Route path='/home' element={<HomeAuth />} />
+          {/* <Route path='/' element={<HomeNoAuth />} /> */}
+          <Route path='/' element={<HomeAuth />} />
           <Route path='/mygoals' element={<MyGoals />} />
           <Route path='/completed' element={<CompletedGoals />} />
       </Routes>
+
+      {/* <Routes>
+        <>
+      </Routes> */}
       
     </>
     
