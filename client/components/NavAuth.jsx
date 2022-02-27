@@ -12,19 +12,38 @@ const NavAuth = () => {
 
     return (
         isAuthenticated && (
-        <>
-            <Link to='/'>Resolute.</Link>
-            {/* <p>Current Goals</p>
-            <p>Completed Goals</p> */}    
+
+            <div className="nav-container"> 
+                <div>
+                    <Link className="resolute-link" to='/'>Resolute. </Link>
+                </div>
+                <div className="links-container">
+                    <div className="myGoals-container"> 
+                    <Link to='/mygoals'>My Goals</Link>
+                    </div>
+                
+                    <div className="completed-container">
+                    <Link to='/completed'>Completed </Link>
+                    </div>
+                </div>
+                
+                <div className="auth-button-container"> 
+                    <SignOut/>
+                </div>
+
+                
+                {/* <SignIn/> */}
+            </div>
+        )
+    )
+}
+
+{/* <Link to='/'>Resolute.</Link>
             <Link to='/mygoals'>My Goals</Link>
             <Link to='/completed'>Completed Goals</Link>
 
 
             <SignIn />
-            <SignOut />
-        </>
-        )
-    )
-}
-
+            <SignOut /> */}
+            
 export default NavAuth

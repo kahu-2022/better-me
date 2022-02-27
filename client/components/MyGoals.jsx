@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const MyGoals = () => {
     return (
         <>
-            <h1>Current Goals</h1>
+            {console.log('Current Goals')}
             {/* <Link to='/mygoals'>My Goals</Link> */}
             
         </>

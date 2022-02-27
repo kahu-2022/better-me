@@ -8,7 +8,7 @@ const CompletedGoals = () => {
     return (
     
         <>
-            <h1>Completed Goals</h1>
+            {console.log('Completed Goals')}
         </>
     )
 }

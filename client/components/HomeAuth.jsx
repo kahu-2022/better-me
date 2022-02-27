@@ -16,7 +16,29 @@ function HomeAuth() {
 
     <>
         
-        <h3>Home page with Auth!</h3>
+        <form>
+            <input className="goalInput-text-box" type="text" placeholder="Enter your goal here..."></input>
+        </form>
+
+        <div className="goals-card">
+
+            {/* To display goals */}
+            <div>
+
+            </div>
+
+            <div>
+                <button className="goals-card-button">
+                    Submit
+                </button>
+            </div>
+        </div>
+
+        
+            {/* <iframe className="borat" src="https://giphy.com/embed/Od0QRnzwRBYmDU3eEO" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> */}
+        
+        
+        {console.log('Home page with auth')}
         
     </>
     )
