@@ -10,7 +10,7 @@ import { thunkGetAllGoals } from "../actions/goals";
 
 function App() {
   const dispatch = useDispatch();
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState(""); // state for form to add new goal
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
