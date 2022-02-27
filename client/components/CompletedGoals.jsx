@@ -8,6 +8,17 @@ const CompletedGoals = () => {
     return (
     
         <>
+            <div className="mygoals-card">
+
+            
+                <h3><u>Completed Goals</u></h3>
+
+
+                {/* To display goals */}
+                <div></div>
+
+            </div>
+
             {console.log('Completed Goals')}
         </>
     )

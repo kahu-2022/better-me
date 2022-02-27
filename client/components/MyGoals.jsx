@@ -8,9 +8,9 @@ const MyGoals = () => {
 
         <div className="mygoals-card">
 
-            <div className="mygoals-header">
-                <h3>My Goals</h3>
-            </div>
+            
+            <h3><u>My Goals</u></h3>
+            
 
             {/* To display goals */}
             <div></div>
