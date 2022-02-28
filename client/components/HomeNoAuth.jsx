@@ -28,8 +28,6 @@ const HomeNoAuth = () => {
             </div>
         </div>
 
-            {console.log(`Home page without Auth :(`)}
-            
         </>
     )
     )
