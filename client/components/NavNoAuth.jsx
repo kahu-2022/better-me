@@ -15,7 +15,7 @@ const NavNoAuth = () => {
                     <Link className="resolute-link" to='/'>Resolute. </Link>
                 </div>
                 
-                <div className="auth-button-container"> 
+                <div> 
                     <SignIn/>
                 </div>
 

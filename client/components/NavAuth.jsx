@@ -40,8 +40,9 @@ const NavAuth = () => {
                     </div>
                 </div>
                 
-                <div className="auth-button-container"> 
-                    <SignOut/>
+                {/* <div className="auth-button-container">  */}
+                <div> 
+                    <SignOut />
                 </div>
 
                 
