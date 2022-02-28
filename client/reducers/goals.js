@@ -13,7 +13,8 @@ const reducer = (state = [], action) => {
       console.log("reduce", action.id, action.newStatus);
       return state.map((goal) => {
         if (goal.id === action.id) {
-          return (goal.completed = action.newStatus);
+          goal.completed = action.newStatus;
+          return goal;
         } else {
           return goal;
         }
