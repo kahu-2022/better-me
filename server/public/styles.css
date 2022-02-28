@@ -24,9 +24,17 @@ body {
   }
 
   ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
+    width: 8px;               
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;        
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: hsla(9, 94%, 67%, 0.883);    
+    border-radius: 20px;      
+    
+  }
+
 
 .goals-container {
     display: flex;
@@ -41,7 +49,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: center;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     width: 400px;
     height: 285px;
 }
@@ -89,7 +97,7 @@ body {
   }
   
   .resolute-link{
-    font-family: "Oxygen", sans-serif !important;
+    font-family: 'Oxygen', sans-serif !important;
     font-size: 48px;
     font-weight: bolder;
     text-decoration: none;
@@ -219,7 +227,7 @@ body {
   }
   
   .goals-card-button:hover {
-    background-color: #fdb388d4
+    background-color: #fdb388d4;
   }
   
   /* No Auth Button */
