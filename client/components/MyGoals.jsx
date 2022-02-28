@@ -44,13 +44,13 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
               })}
             </ul>
 
-            <ul>
+            {/* <ul>
               {results.map((goals) => (
                 <li>
                   {goals.details} {goals.completed}
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
       </>
