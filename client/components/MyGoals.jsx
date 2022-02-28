@@ -1,27 +1,26 @@
 import React from 'react'
-// import MyGoals from './MyGoals'
-import { Link } from 'react-router-dom'
+
+import { useAuth0 } from '@auth0/auth0-react'
 
 const MyGoals = () => {
-    return (
-        <>
+  const { isAuthenticated } = useAuth0()
+
+  return (
+    isAuthenticated && (
+      <>
 
         <div className="mygoals-card">
 
-            
-            <h3><u>My Goals</u></h3>
-            
+          <h3><u>My Goals</u></h3>
 
-            {/* To display goals */}
-            <div></div>
+          {/* To display goals */}
+          <div></div>
 
         </div>
 
-        {console.log('Current Goals')}
-            
-            
-        </>
+      </>
     )
+  )
 }
 
 export default MyGoals

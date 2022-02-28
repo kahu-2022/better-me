@@ -1,36 +1,35 @@
 import React from 'react'
-// import Login from './SignIn'
-import { useAuth0 } from '@auth0/auth0-react' 
+
+import { useAuth0 } from '@auth0/auth0-react'
 
 const HomeNoAuth = () => {
+  const { isAuthenticated } = useAuth0()
 
-    const { isAuthenticated } = useAuth0();
-
-    return (
-        !isAuthenticated && (
-        <>
+  return (
+    !isAuthenticated && (
+      <>
 
         <form>
-            <input className="goalInput-NoAuth" type="text" placeholder="Sign in or register to start adding goals..." disabled></input>
+          <input className="goalInput-NoAuth" type="text" placeholder="Sign in or register to start adding goals..." disabled></input>
         </form>
 
         <div className="goals-card">
 
-            {/* To display goals */}
-            <div>
+          {/* To display goals */}
+          <div>
 
-            </div>
+          </div>
 
-            <div>
-                <button className="goals-button-noauth">
+          <div>
+            <button className="goals-button-noauth">
                     Submit
-                </button>
-            </div>
+            </button>
+          </div>
         </div>
 
-        </>
+      </>
     )
-    )
+  )
 }
 
 export default HomeNoAuth
