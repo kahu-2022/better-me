@@ -15,8 +15,9 @@ function Quotes() {
     console.log("clicked");
     getQuotes()
       .then((resultsApi) => {
-        let finalQuotes = resultsApi[randomNum];
+        const finalQuotes = resultsApi[randomNum];
         setQuotes(finalQuotes);
+        return null;
       })
       .catch((err) => {
         console.log(err.message);
@@ -24,7 +25,7 @@ function Quotes() {
   };
 
   return (
-    <div>
+    <div className="footer">
       {/* <button onClick={handleClick}></button> */}
       <h4>
         {quotes.text} <em>-{quotes.author}</em>

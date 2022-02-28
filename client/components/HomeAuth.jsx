@@ -1,54 +1,97 @@
-// Comment: Remove all these unused imports and pieces of code 
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import SetGoals from "./SetGoals";
+import Quotes from "./Quotes";
 
-
-import React from "react";
-// import Nav from './NavNoAuth'
-// import Login from './SignIn'
-// import Logout from './SignOut'
+import { thunkAddNewGoal, thunkGetAllGoals } from "../actions/goals";
 import { useAuth0 } from "@auth0/auth0-react";
-import Form, { inputTextHandler, submitGoalHandler } from "./Form";
-// import GoalList from "./GoalList";
-// import { Routes, Route } from 'react-router-dom'
 
-// import CompletedGoals from './CompletedGoals'
-// import MyGoals from './MyGoals'
-
-function HomeAuth({
-  inputText,
-  setInputText,
-  todos,
-  setTodos,
-  setStatus,
-  submitGoalHandler,
-  inputTextHandler,
-  //   filteredGoals,
-}) {
+function HomeAuth() {
   const { isAuthenticated } = useAuth0();
+  const dispatch = useDispatch();
+  const results = useSelector((globalState) => globalState.goals);
+  const newGoals = useSelector((globalState) => globalState.newGoals);
+  const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [inputText, setInputText] = useState(""); // state for form to add new goal
+  const [filteredGoals, setFilteredGoals] = useState([]);
+
+  // On load when the app runs
+  useEffect(() => {
+    dispatch(thunkGetAllGoals());
+  }, []);
+
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status]);
+
+  const inputTextHandler = (evt) => {
+    setInputText(evt.target.value);
+  };
+
+  const submitGoalHandler = (evt) => {
+    evt.preventDefault();
+    setTodos(
+      [
+        ...todos,
+        {
+          details: inputText,
+          completed: false,
+        },
+      ],
+      dispatch(thunkAddNewGoal(inputText))
+    );
+    setInputText("");
+  };
+
+  const filteredResults = results.filter((goal) => {
+    const id = goal.id;
+    return newGoals.includes(id);
+  });
+
+  // function to keep completed task and display when selected
+  const filterHandler = () => {
+    switch (status) {
+      case "completed":
+        setFilteredGoals(todos.filter((todo) => todo.completed === true));
+        break;
+      case "uncompleted":
+        setFilteredGoals(todos.filter((todo) => todo.uncompleted === false));
+        break;
+      default:
+        setFilteredGoals(todos);
+    }
+  };
 
   return (
     isAuthenticated && (
       <>
-        <Form>
+        <form onSubmit={submitGoalHandler}>
           <input
+            onChange={inputTextHandler}
+            value={inputText}
             className="goalInput-text-box"
             type="text"
             placeholder="Enter your goal here..."
-            inputText={inputText}
-            setInputText={setInputText}
-            todos={todos}
-            setTodos={setTodos}
-            setStatus={setStatus}
           ></input>
-        </Form>
+        </form>
 
         <div className="goals-card">
           {/* To display goals */}
           <div>
-            {/* <GoalList
-              //   filteredGoals={filteredGoals}
-              setTodos={setTodos}
-              todos={todos}
-            /> */}
+            <div className="todo-container">
+              <ul className="todo-list"></ul>
+              {filteredResults.map((todo) => (
+                <SetGoals
+                  key={todo.id}
+                  setTodos={setTodos}
+                  todos={todos}
+                  todo={todo}
+                  details={todo.details}
+                  filteredGoals={filteredGoals}
+                />
+              ))}
+            </div>
           </div>
 
           <div>
@@ -61,10 +104,9 @@ function HomeAuth({
             </button>
           </div>
         </div>
-
-        {/* <iframe className="borat" src="https://giphy.com/embed/Od0QRnzwRBYmDU3eEO" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> */}
-
-        {console.log("Home page with auth")}
+        <footer>
+          <Quotes />
+        </footer>
       </>
     )
   );

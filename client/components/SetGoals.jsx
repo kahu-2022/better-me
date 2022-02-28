@@ -1,9 +1,17 @@
-import React from "react";
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { thunkDelGoal } from '../actions/goals'
 
-function SetGoals({ details, setTodos, todo, todos }) {
+function SetGoals ({ details, setTodos, todo, todos }) {
+  console.log('delete', details)
+
+  const dispatch = useDispatch()
+
   const deleteHandler = () => {
-    setTodos(todos.filter((elem) => elem.details !== todo.details));
-  };
+    console.log(todo.id)
+    //   // setTodos(todos.filter((elem) => elem.details !== todo.details));
+    dispatch(thunkDelGoal(todo.id))
+  }
 
   // this part is for my Goals and to change state to complete
   const completeHandler = () => {
@@ -12,17 +20,17 @@ function SetGoals({ details, setTodos, todo, todos }) {
         if (item.details === todo.details) {
           return {
             ...item,
-            completed: !item.completed,
-          };
+            completed: !item.completed
+          }
         }
-        return item;
+        return item
       })
-    );
-  };
+    )
+  }
 
   return (
     <div className="todo">
-      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
+      <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
         {details}
       </li>
       <button onClick={completeHandler} className="complete-btn">
@@ -32,7 +40,7 @@ function SetGoals({ details, setTodos, todo, todos }) {
         <i className="fas fa-trash"></i>
       </button>
     </div>
-  );
+  )
 }
 
-export default SetGoals;
+export default SetGoals

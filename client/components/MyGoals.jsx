@@ -1,27 +1,61 @@
-import React from 'react'
-// import MyGoals from './MyGoals'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import SetGoals from "./SetGoals";
 
-const MyGoals = () => {
-    return (
-        <>
+import { useAuth0 } from "@auth0/auth0-react";
+import { thunkGetAllGoals } from "../actions/goals";
 
+const MyGoals = ({ todos, setTodos, filteredGoals }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(thunkGetAllGoals());
+  }, []);
+
+  const { isAuthenticated } = useAuth0();
+  const newGoals = useSelector((globalState) => globalState.newGoals);
+  const results = useSelector((globalState) => globalState.goals);
+
+  const filteredResults = results.filter((goal) => {
+    const id = goal.id;
+
+    return newGoals.includes(id);
+  });
+  return (
+    isAuthenticated && (
+      <>
         <div className="mygoals-card">
+          <h3>
+            <u>My Goals</u>
+          </h3>
 
-            <div className="mygoals-header">
-                <h3>My Goals</h3>
-            </div>
+          {/* To display goals */}
+          <div>
+            <ul>
+              {results.map((goals) => {
+                if (goals.completed == 0) {
+                  return <li>{goals.details}</li>;
+                } else {
+                  return (
+                    <li>
+                      <del>{goals.details}</del>
+                    </li>
+                  );
+                }
+              })}
+            </ul>
 
-            {/* To display goals */}
-            <div></div>
-
+            {/* <ul>
+              {results.map((goals) => (
+                <li>
+                  {goals.details} {goals.completed}
+                </li>
+              ))}
+            </ul> */}
+          </div>
         </div>
-
-        {console.log('Current Goals')}
-            
-            
-        </>
+      </>
     )
-}
+  );
+};
 
-export default MyGoals
+export default MyGoals;

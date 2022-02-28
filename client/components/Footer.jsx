@@ -1,10 +1,8 @@
 import React from "react";
-import Quotes from "./Quotes";
 
 function Footer() {
   return (
-    <>
-      <Quotes />
+    <div>
       <footer className="footer">
         <p>
           <i>
@@ -15,7 +13,7 @@ function Footer() {
           </i>
         </p>
       </footer>
-    </>
+    </div>
   );
 }
 
