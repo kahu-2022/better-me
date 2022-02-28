@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { thunkDelGoal } from '../actions/goals'
+import { thunkDelGoal, thunkUpdGoal } from '../actions/goals'
 
 function SetGoals ({ details, setTodos, todo, todos }) {
   const dispatch = useDispatch()
@@ -11,17 +11,18 @@ function SetGoals ({ details, setTodos, todo, todos }) {
 
   // this will need to be changed to dispatch a updateGoal thunk that uses the update goal action
   const completeHandler = () => {
-    setTodos(
-      todos.map((item) => {
-        if (item.details === todo.details) {
-          return {
-            ...item,
-            completed: !item.completed
-          }
-        }
-        return item
-      })
-    )
+    // setTodos(
+    //   todos.map((item) => {
+    //     if (item.details === todo.details) {
+    //       return {
+    //         ...item,
+    //         completed: !item.completed
+    //       }
+    //     }
+    //     return item
+    //   })
+    // )
+    dispatch(thunkUpdGoal(todo.id))
   }
 
   return (
@@ -30,10 +31,10 @@ function SetGoals ({ details, setTodos, todo, todos }) {
         {details}
       </li>
       <button onClick={completeHandler} className="complete-btn">
-        <i className="fas fa-check"></i>
+        Complete?<i className="fas fa-check"></i>
       </button>
       <button onClick={deleteHandler} className="trash-btn">
-        <i className="fas fa-trash"></i>
+        Delete!<i className="fas fa-trash"></i>
       </button>
     </div>
   )

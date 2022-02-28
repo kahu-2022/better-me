@@ -19,3 +19,10 @@ export function deleteGoals (id) {
     .del(`/api/v1/goals/${id}`)
     .then((res) => res.body)
 }
+
+export function updateGoals (id) {
+  return request
+    .patch(`/api/v1/goals/${id}`)
+    .then((res) => res.body)
+}
+// may need reworking

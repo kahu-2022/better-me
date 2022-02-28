@@ -3,6 +3,7 @@ import { fetchAllGoals, postNewGoals, deleteGoals } from '../apis/goals'
 export const ADD_GOALS = 'ADD_GOALS'
 export const GET_GOALS = 'GET_GOALS'
 export const DEL_GOALS = 'DEL_GOALS'
+export const UPD_GOALS = 'UPD_GOALS'
 
 export function getGoals (goalArr) {
   return {
@@ -25,6 +26,12 @@ export function delGoals (id) {
   }
 }
 
+export function updGoals (id) {
+  return {
+    type: UPD_GOALS,
+    id // not sure if right
+  }
+}
 // will need a new action and thunk for complete button
 
 
@@ -85,3 +92,21 @@ export function thunkDelGoal (id) {
       })
   }
 }
+
+// thunk FOR UPDATE GOALS
+
+export function thunkUpdGoal (id) {
+  return (dispatch) => {
+    updateGoals(id)
+      .then(() => {
+        dispatch(updGoals(id))
+        return null
+      })
+      .catch(err => {
+        const errMessage = err.response?.text || err.message
+        console.log(errMessage)
+        return null
+      })
+  }
+}
+// may need reworking
