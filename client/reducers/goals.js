@@ -5,6 +5,11 @@ const reducer = (state = [], action) => {
 
     case "ADD_GOALS":
       return action.goals;
+
+    case "DEL_GOALS":
+      return action.id;
+      // return state.filter(goals => goals.id !== action.id)
+
     default:
       return state;
   }

@@ -25,4 +25,20 @@ router.get("/", (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  console.log(req.params.id)
+
+  db.deleteGoals(id)
+  .then(numberUpdated => {
+    if (numberUpdated !== 1) throw Error('Id has been deleted')
+    res.sendStatus(200)
+  })
+.catch(err => {
+    res.status(500).json({ error: err.message })
+  })
+})
+
+
+
 module.exports = router;

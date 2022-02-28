@@ -7,6 +7,7 @@ import Form from "./Form";
 import GoalList from "./GoalList";
 
 import { thunkGetAllGoals } from "../actions/goals";
+import DeleteGoals from "./DeleteGoals";
 
 function App() {
   const dispatch = useDispatch();
@@ -78,6 +79,7 @@ function App() {
           <li>{goals.details}</li>
         ))}
       </ul>
+      <DeleteGoals />
       <footer>
         <Quotes />
       </footer>
