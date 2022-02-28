@@ -25,6 +25,15 @@ export function delGoals(id) {
   };
 }
 
+
+export function patchGoals(id) {
+  return {
+    type: PATCH_GOALS,
+    id
+  }
+}
+
+
 // thunk FOR GET GOALS
 
 export function thunkGetAllGoals() {
@@ -60,4 +69,13 @@ export function thunkDelGoal(id) {
       dispatch(delGoals(id));
     });
   };
+}
+
+// THUNK FOR UPDATE GOALS
+export function thunkUpdateGoals(id) {
+  return (dispatch) => {
+    updateGoals(id).then(()=> {
+      dispatch(patchGoals(id));
+    })
+  }
 }

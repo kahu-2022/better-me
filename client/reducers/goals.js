@@ -9,6 +9,9 @@ const reducer = (state = [], action) => {
     case "DEL_GOALS":
       return state.filter((goals) => goals.id !== action.id);
 
+    case "UPDATE_GOALS":
+       return 
+      
     default:
       return state;
   }

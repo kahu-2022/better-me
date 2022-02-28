@@ -11,11 +11,20 @@ function getGoals(db = connection) {
 }
 
 function deleteGoals(id, db = connection) {
-  return db("Goals").delete().where("id", id);
+  return db("goals").delete().where("id", id);
 }
+
+function updateGoals(id, db = connection) {
+  return db("goals")
+    .select()
+    .where('id', id)
+    .update({ completed: true });
+}
+
 
 module.exports = {
   addGoals,
   getGoals,
   deleteGoals,
+  updateGoals
 };

@@ -15,6 +15,7 @@ router.post("/", (req, res) => {
     });
 });
 
+
 router.get("/", (req, res) => {
   db.getGoals(res.body)
     .then((goals) => {
@@ -25,9 +26,10 @@ router.get("/", (req, res) => {
     });
 });
 
+
 router.delete('/:id', (req, res) => {
   const id = Number(req.params.id)
-  console.log(req.params.id)
+  // console.log(req.params.id)
 
   db.deleteGoals(id)
   .then(numberUpdated => {
@@ -37,6 +39,21 @@ router.delete('/:id', (req, res) => {
 .catch(err => {
     res.status(500).json({ error: err.message })
   })
+})
+
+
+router.patch('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  // const newStatus = req.body.completed
+    db.updateGoals(id)
+      .then((id) => {
+        res.status(201).send('goal has been completed')
+        return id
+  })
+      .catch((err) => {
+        res.status(500).send('DATABASE ERROR: ' + err.message)
+  })
+
 })
 
 
