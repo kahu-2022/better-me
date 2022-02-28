@@ -60,6 +60,16 @@ body {
     text-align: center;
    
   }
+
+  .noauth-button:hover {
+    background-color: rgba(255, 255, 240, 0.625);
+    color:#2C3333;
+    border: solid 1.5px #2C3333;
+    border-radius: 15px;
+    display: flexbox;
+    
+  
+  }
   
   .auth-button:hover {
     background-color: rgba(255, 255, 240, 0.625);
