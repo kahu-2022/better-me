@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import SetGoals from "./SetGoals";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { thunkGetAllGoals } from "../actions/goals";
+import { thunkGetAllGoals, thunkUpdateGoals } from "../actions/goals";
 
 const MyGoals = ({ todos, setTodos, filteredGoals }) => {
   const dispatch = useDispatch();
+  const [complete, setComplete] = useState(false);
+
   useEffect(() => {
     dispatch(thunkGetAllGoals());
   }, []);
@@ -15,11 +17,19 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
   const newGoals = useSelector((globalState) => globalState.newGoals);
   const results = useSelector((globalState) => globalState.goals);
 
-  const filteredResults = results.filter((goal) => {
-    const id = goal.id;
+  // const filteredResults = results.filter((goal) => {
+  //   const id = goal.id;
 
-    return newGoals.includes(id);
-  });
+  //   return newGoals.includes(id);
+  // });
+
+  const submitCompleteHandler = (id) => {
+    // evt.preventDefault();
+    console.log("submit", id);
+    setComplete(!complete);
+    dispatch(thunkUpdateGoals(id, complete));
+  };
+
   return (
     isAuthenticated && (
       <>
@@ -32,12 +42,23 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
           <div>
             <ul>
               {results.map((goals) => {
-                if (goals.completed == 0) {
-                  return <li>{goals.details}</li>;
+                console.log(goals);
+                if (goals.completed === 0) {
+                  return (
+                    <li key={goals.details}>
+                      {goals.details}
+                      <button onClick={() => submitCompleteHandler(goals.id)}>
+                        Test
+                      </button>
+                    </li>
+                  );
                 } else {
                   return (
-                    <li>
+                    <li key={goals.details}>
                       <del>{goals.details}</del>
+                      <button onClick={() => submitCompleteHandler(goals.id)}>
+                        Test
+                      </button>
                     </li>
                   );
                 }
