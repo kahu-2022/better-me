@@ -31,6 +31,20 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
           {/* To display goals */}
           <div>
             <ul>
+              {results.map((goals) => {
+                if (goals.completed == 0) {
+                  return <li>{goals.details}</li>;
+                } else {
+                  return (
+                    <li>
+                      <del>{goals.details}</del>
+                    </li>
+                  );
+                }
+              })}
+            </ul>
+
+            <ul>
               {results.map((goals) => (
                 <li>
                   {goals.details} {goals.completed}
