@@ -78,9 +78,9 @@ function HomeAuth() {
 
         <div className="goals-card">
           {/* To display goals */}
-          <div>
+          <div className="goals-container">
             <div className="todo-container">
-              <ul className="todo-list"></ul>
+              <ul className="todo-list">
               {filteredResults.map((todo) => (
                 <SetGoals
                   key={todo.id}
@@ -91,19 +91,21 @@ function HomeAuth() {
                   filteredGoals={filteredGoals}
                 />
               ))}
+              </ul>
             </div>
           </div>
-
-          <div>
-            <button
-              onClick={submitGoalHandler}
-              type="submit"
-              className="goals-card-button"
-            >
-              Submit
-            </button>
-          </div>
+        
+        <button
+            onClick={submitGoalHandler}
+            type="submit"
+            className="goals-card-button"
+        >
+            Submit
+        </button>
+        
         </div>
+          
+        
         <footer>
           <Quotes />
         </footer>

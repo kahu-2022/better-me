@@ -23,6 +23,34 @@ body {
     text-align: center;
   }
 
+  ::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.goals-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.todo-container {
+    /* overflow: scroll; */
+    display:flex;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+    background-color: whitesmoke;
+    width: 400px;
+    height: 285px;
+}
+
+.todo-list {
+    display: inline-block;
+    
+}
+
   .noauth-button{
     background-color: transparent;
     color:#2C3333;
@@ -145,6 +173,7 @@ body {
   .goals-card {
     background-color: rgba(229, 229, 229, 0.27);
     margin-top: 100px;
+    
     width: 600px;
     height: 360px;
     border-radius: 23px 23px 0px 0px;
@@ -182,7 +211,7 @@ body {
     width: 601px;
     border-radius: 0px 0px 23px 23px ;
     height: 40px;
-    margin-top: 361px;
+    margin-top: 39px !important;
     border: 1px solid #2C3333;
     vertical-align: middle;
     text-decoration: underline;
@@ -196,10 +225,12 @@ body {
   /* No Auth Button */
 
   .goals-button-noauth{
-    background-color: rgba(229, 229, 229, 0.27);  justify-content: center;
+    background-color: rgba(229, 229, 229, 0.27);  
+    justify-content: center;
     width: 601px;
     border-radius: 0px 0px 23px 23px ;
     margin-top: 361px;
+    height: 40px;
     border: 1px solid #2C3333;
     vertical-align: middle;
     text-decoration: underline;
