@@ -25,10 +25,10 @@ function Quotes() {
   };
 
   return (
-    <div className="footer">
+    <div className="footer-quotes">
       {/* <button onClick={handleClick}></button> */}
-      <h4>
-        {quotes.text} <em>-{quotes.author}</em>
+      <h4 className="quotes-container">
+        <strong>" </strong>{quotes.text}<strong> "</strong><br></br> <em>-{quotes.author}</em>
       </h4>
     </div>
   );

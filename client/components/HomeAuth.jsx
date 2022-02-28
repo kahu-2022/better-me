@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SetGoals from "./SetGoals";
 import Quotes from "./Quotes";
+// import Footer from "./Footer";
 
 import { thunkAddNewGoal, thunkGetAllGoals } from "../actions/goals";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -15,6 +16,7 @@ function HomeAuth() {
   const [status, setStatus] = useState("all");
   const [inputText, setInputText] = useState(""); // state for form to add new goal
   const [filteredGoals, setFilteredGoals] = useState([]);
+  
 
   // On load when the app runs
   useEffect(() => {
@@ -105,10 +107,10 @@ function HomeAuth() {
         
         </div>
           
+        <Quotes />
+
+        {/* <Footer className="footer"/> */}
         
-        <footer>
-          <Quotes />
-        </footer>
       </>
     )
   );
