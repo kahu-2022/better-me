@@ -1,48 +1,115 @@
-import React from 'react'
-// import Nav from './NavNoAuth'
-// import Login from './SignIn'
-// import Logout from './SignOut'
-import { useAuth0 } from '@auth0/auth0-react' 
-// import { Routes, Route } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import SetGoals from "./SetGoals";
+import Quotes from "./Quotes";
 
-// import CompletedGoals from './CompletedGoals'
-// import MyGoals from './MyGoals'
+import { thunkAddNewGoal, thunkGetAllGoals } from "../actions/goals";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function HomeAuth() {
-    const { isAuthenticated } = useAuth0();
-   
-    return(
-    isAuthenticated && (
+  const { isAuthenticated } = useAuth0();
+  const dispatch = useDispatch();
+  const results = useSelector((globalState) => globalState.goals);
+  const newGoals = useSelector((globalState) => globalState.newGoals);
+  const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [inputText, setInputText] = useState(""); // state for form to add new goal
+  const [filteredGoals, setFilteredGoals] = useState([]);
 
-    <>
-        
-        <form>
-            <input className="goalInput-text-box" type="text" placeholder="Enter your goal here..."></input>
+  // On load when the app runs
+  useEffect(() => {
+    dispatch(thunkGetAllGoals());
+  }, []);
+
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status]);
+
+  const inputTextHandler = (evt) => {
+    setInputText(evt.target.value);
+  };
+
+  const submitGoalHandler = (evt) => {
+    evt.preventDefault();
+    setTodos(
+      [
+        ...todos,
+        {
+          details: inputText,
+          completed: false,
+        },
+      ],
+      dispatch(thunkAddNewGoal(inputText))
+    );
+    setInputText("");
+  };
+
+  const filteredResults = results.filter((goal) => {
+    const id = goal.id;
+    return newGoals.includes(id);
+  });
+
+  // function to keep completed task and display when selected
+  const filterHandler = () => {
+    switch (status) {
+      case "completed":
+        setFilteredGoals(todos.filter((todo) => todo.completed === true));
+        break;
+      case "uncompleted":
+        setFilteredGoals(todos.filter((todo) => todo.uncompleted === false));
+        break;
+      default:
+        setFilteredGoals(todos);
+    }
+  };
+
+  return (
+    isAuthenticated && (
+      <>
+        <form onSubmit={submitGoalHandler}>
+          <input
+            onChange={inputTextHandler}
+            value={inputText}
+            className="goalInput-text-box"
+            type="text"
+            placeholder="Enter your goal here..."
+          ></input>
         </form>
 
         <div className="goals-card">
-
-            {/* To display goals */}
-            <div>
-
+          {/* To display goals */}
+          <div>
+            <div className="todo-container">
+              <ul className="todo-list"></ul>
+              {filteredResults.map((todo) => (
+                <SetGoals
+                  key={todo.id}
+                  setTodos={setTodos}
+                  todos={todos}
+                  todo={todo}
+                  details={todo.details}
+                  filteredGoals={filteredGoals}
+                />
+              ))}
             </div>
+          </div>
 
-            <div>
-                <button className="goals-card-button">
-                    Submit
-                </button>
-            </div>
+          <div>
+            <button
+              onClick={submitGoalHandler}
+              type="submit"
+              className="goals-card-button"
+            >
+              Submit
+            </button>
+          </div>
         </div>
-
-        
-            {/* <iframe className="borat" src="https://giphy.com/embed/Od0QRnzwRBYmDU3eEO" width="280" height="280" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> */}
-        
-        
-        {console.log('Home page with auth')}
-        
-    </>
+        <footer>
+          <Quotes />
+        </footer>
+      </>
     )
-    )
+  );
 }
 
-export default HomeAuth
+export default HomeAuth;
