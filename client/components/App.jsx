@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import AddTodo from "./Login";
-import "./App.css";
-import Quotes from "./Quotes";
-import Form from "./Form";
+// import "./App.css";
+
+// import Form from "./Form";
 import GoalList from "./GoalList";
-import React, { useEffect } from "react";
 
 import { Routes, Route } from "react-router-dom";
 import NavNoAuth from "./NavNoAuth";
@@ -73,31 +72,6 @@ function App() {
 
   return (
     <>
-      <header className="header">
-        <Form
-          inputText={inputText}
-          setInputText={setInputText}
-          todos={todos}
-          setTodos={setTodos}
-          setStatus={setStatus}
-        />
-        <GoalList
-          filteredGoals={filteredGoals}
-          setTodos={setTodos}
-          todos={todos}
-        />
-      </header>
-      <ul>
-        {results.map((goals) => (
-          <li>{goals.details}</li>
-        ))}
-      </ul>
-      <footer>
-        <Quotes />
-      </footer>
-      <section className="main"></section>
-      <footer className="footer"></footer>
-
       <NavAuth />
       <NavNoAuth />
       {/* <HomeAuth /> */}
@@ -109,6 +83,28 @@ function App() {
         <Route path="/mygoals" element={<MyGoals />} />
         <Route path="/completed" element={<CompletedGoals />} />
       </Routes>
+      <header className="header">
+        {/* <Form
+          inputText={inputText}
+          setInputText={setInputText}
+          todos={todos}
+          setTodos={setTodos}
+          setStatus={setStatus}
+        /> */}
+        {/* <GoalList
+          filteredGoals={filteredGoals}
+          setTodos={setTodos}
+          todos={todos}
+        /> */}
+      </header>
+      <ul>
+        {results.map((goals) => (
+          <li>{goals.details}</li>
+        ))}
+      </ul>
+      <footer>{/* <Quotes /> */}</footer>
+      <section className="main"></section>
+      <footer className="footer"></footer>
 
       <Footer />
     </>
