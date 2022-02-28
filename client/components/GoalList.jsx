@@ -1,14 +1,21 @@
 import React from "react";
 import SetGoals from "./SetGoals";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function GoalList({ todos, setTodos, filteredGoals }) {
-  //   const results = useSelector((globalState) => globalState.goals);
+  const results = useSelector((globalState) => globalState.goals);
+  const newGoals = useSelector((globalState) => globalState.newGoals);
+
+  const filteredResults = results.filter((goal) => {
+    const id = goal.id;
+
+    return newGoals.includes(id);
+  });
 
   return (
     <div className="todo-container">
       <ul className="todo-list"></ul>
-      {filteredGoals.map((todo) => (
+      {filteredResults.map((todo) => (
         <SetGoals
           key={todo.id}
           setTodos={setTodos}

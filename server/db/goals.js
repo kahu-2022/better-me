@@ -11,13 +11,11 @@ function getGoals(db = connection) {
 }
 
 function deleteGoals(id, db = connection) {
-  return db('Goals')
-  .delete()
-  .where('id', id)
+  return db("Goals").delete().where("id", id);
 }
 
 module.exports = {
   addGoals,
   getGoals,
-  deleteGoals
+  deleteGoals,
 };

@@ -21,8 +21,8 @@ export function addGoals(goals) {
 export function delGoals(id) {
   return {
     type: DEL_GOALS,
-    id
-  }
+    id,
+  };
 }
 
 // thunk FOR GET GOALS
@@ -43,20 +43,21 @@ export function thunkAddNewGoal(goals) {
 
   return (dispatch) => {
     // console.log("afterThunk", goals);
-    postNewGoals(newGoals).then((goals) => {
-      dispatch(addGoals(goals));
+    postNewGoals(newGoals).then((goalsArr) => {
+      console.log("goalsArr", goalsArr);
+      const goalsId = goalsArr[0];
+      newGoals.id = goalsId;
+      dispatch(addGoals(newGoals));
     });
   };
 }
-
 
 // thunk FOR DELETE GOALS
 
 export function thunkDelGoal(id) {
   return (dispatch) => {
-    deleteGoals(id).then(() =>{
-      dispatch(delGoals(id))
-    })
-  }
+    deleteGoals(id).then(() => {
+      dispatch(delGoals(id));
+    });
+  };
 }
-

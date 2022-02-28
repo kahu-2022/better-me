@@ -7,7 +7,6 @@ import Form from "./Form";
 import GoalList from "./GoalList";
 
 import { thunkGetAllGoals } from "../actions/goals";
-import DeleteGoals from "./DeleteGoals";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ function App() {
   // On load when the app runs
   useEffect(() => {
     dispatch(thunkGetAllGoals());
-    getLocalTodos();
   }, []);
 
   useEffect(() => {
@@ -42,22 +40,6 @@ function App() {
     }
   };
 
-  // saving it to local storage
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
-
-  const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let todoLocal = JSON.parse(localStorage.getItem("todos"));
-      setTodos(todoLocal);
-    }
-  };
-
-  // save to global state
-
   return (
     <>
       <header className="header">
@@ -79,7 +61,6 @@ function App() {
           <li>{goals.details}</li>
         ))}
       </ul>
-      <DeleteGoals />
       <footer>
         <Quotes />
       </footer>
