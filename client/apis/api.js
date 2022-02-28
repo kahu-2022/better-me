@@ -2,6 +2,7 @@ import request from 'superagent'
 
 const rootUrl = '/betterme/api/'
 
+// Comment: both api.js and goals.js contain api's relating to goals. Consider putting these in one file
 export function getGoals () {
     return request.get(`${rootUrl}/`)
       .then(res => {

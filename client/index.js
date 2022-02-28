@@ -1,4 +1,5 @@
 import React from "react";
+// I think you should remove the below import - was probably auto-imported
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";

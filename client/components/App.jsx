@@ -83,6 +83,7 @@ function App() {
         <Route path="/mygoals" element={<MyGoals />} />
         <Route path="/completed" element={<CompletedGoals />} />
       </Routes>
+      {/* Comment: What is the header below doing? Remove unnecessary code */}
       <header className="header">
         {/* <Form
           inputText={inputText}
@@ -103,6 +104,7 @@ function App() {
         ))}
       </ul>
       <footer>{/* <Quotes /> */}</footer>
+      {/* Comment: Same as above for the next two elements. Remove unused code */}
       <section className="main"></section>
       <footer className="footer"></footer>
 

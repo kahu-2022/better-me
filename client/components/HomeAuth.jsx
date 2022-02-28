@@ -1,10 +1,12 @@
+// Comment: Remove all these unused imports and pieces of code 
+
+
 import React from "react";
 // import Nav from './NavNoAuth'
 // import Login from './SignIn'
 // import Logout from './SignOut'
 import { useAuth0 } from "@auth0/auth0-react";
 import Form, { inputTextHandler, submitGoalHandler } from "./Form";
-
 // import GoalList from "./GoalList";
 // import { Routes, Route } from 'react-router-dom'
 
