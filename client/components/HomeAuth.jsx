@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SetGoals from "./SetGoals";
+import Quotes from "./Quotes";
 
 import { thunkAddNewGoal, thunkGetAllGoals } from "../actions/goals";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -103,6 +104,9 @@ function HomeAuth() {
             </button>
           </div>
         </div>
+        <footer>
+          <Quotes />
+        </footer>
       </>
     )
   );
