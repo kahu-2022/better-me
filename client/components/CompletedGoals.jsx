@@ -18,7 +18,7 @@ const CompletedGoals = () => {
                 <div></div>
 
             </div>
-
+            
             {console.log('Completed Goals')}
         </>
     )

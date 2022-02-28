@@ -10,16 +10,12 @@ const NavAuth = () => {
 
     const { isAuthenticated } = useAuth0()
 
-    const linkStyleGoals = {
+    const linkStyle = {
         color: '#2C3333',
         textDecoration: 'none',
         
     }
-    const linkStyleCompleted = {
-        color: '#2C3333',
-        textDecoration: 'none',
-        
-    }
+   
 
 
 
@@ -32,11 +28,11 @@ const NavAuth = () => {
                 </div>
                 <div className="links-container">
                     <div className="myGoals-container"> 
-                        <Link className="goals-link" to='/mygoals' style={ linkStyleGoals }>My Goals</Link>
+                        <Link className="goals-link" to='/mygoals' style={ linkStyle }>My Goals</Link>
                     </div>
                 
                     <div className="completed-container">
-                        <Link to='/completed' style={ linkStyleCompleted }>Completed </Link>
+                        <Link className="goals-link" to='/completed' style={ linkStyle}>Completed Goals</Link>
                     </div>
                 </div>
                 
