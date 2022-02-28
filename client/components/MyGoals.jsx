@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useAuth0 } from '@auth0/auth0-react'
-
+// add redux and state to go grab goals from the database and show the uncompleted goals
 const MyGoals = () => {
   const { isAuthenticated } = useAuth0()
 

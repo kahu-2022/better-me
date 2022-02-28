@@ -3,17 +3,13 @@ import { useDispatch } from 'react-redux'
 import { thunkDelGoal } from '../actions/goals'
 
 function SetGoals ({ details, setTodos, todo, todos }) {
-  console.log('delete', details)
-
   const dispatch = useDispatch()
 
   const deleteHandler = () => {
-    console.log(todo.id)
-    //   // setTodos(todos.filter((elem) => elem.details !== todo.details));
     dispatch(thunkDelGoal(todo.id))
   }
 
-  // this part is for my Goals and to change state to complete
+  // this will need to be changed to dispatch a updateGoal thunk that uses the update goal action
   const completeHandler = () => {
     setTodos(
       todos.map((item) => {

@@ -25,6 +25,9 @@ export function delGoals (id) {
   }
 }
 
+// will need a new action and thunk for complete button
+
+
 // thunk FOR GET GOALS
 
 export function thunkGetAllGoals () {
