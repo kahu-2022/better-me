@@ -7,11 +7,11 @@ import { thunkGetAllGoals, thunkUpdateGoals } from "../actions/goals";
 
 const MyGoals = ({ todos, setTodos, filteredGoals }) => {
   const dispatch = useDispatch();
-  const [complete, setComplete] = useState(false);
+  const [complete, setComplete] = useState(!complete);
 
   useEffect(() => {
     dispatch(thunkGetAllGoals());
-  }, []);
+  }, [complete]);
 
   const { isAuthenticated } = useAuth0();
   const newGoals = useSelector((globalState) => globalState.newGoals);
