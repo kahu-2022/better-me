@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import SetGoals from "./SetGoals";
 import Quotes from "./Quotes";
 
@@ -95,12 +96,10 @@ function HomeAuth() {
           </div>
 
           <div>
-            <button
-              onClick={submitGoalHandler}
-              type="submit"
-              className="goals-card-button"
-            >
-              Submit
+            <button type="submit" className="goals-card-button">
+              <Link className="goals-link" to="/mygoals">
+                Submit
+              </Link>
             </button>
           </div>
         </div>
