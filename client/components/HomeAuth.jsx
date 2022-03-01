@@ -100,7 +100,7 @@ function HomeAuth() {
           <div>
             <button type="submit" className="goals-card-button">
               <Link className="goals-link" to="/mygoals">
-                Submit
+                View All Goals
               </Link>
             </button>
           </div>
