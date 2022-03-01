@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useAuth0 } from "@auth0/auth0-react";
-import { thunkGetAllGoals } from "../actions/goals";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+import { thunkGetAllGoals } from '../actions/goals'
 
 const CompletedGoals = ({ todos, setTodos, filteredGoals }) => {
-  const { isAuthenticated } = useAuth0();
-  const dispatch = useDispatch();
+  const { isAuthenticated } = useAuth0()
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(thunkGetAllGoals());
-  }, []);
+    dispatch(thunkGetAllGoals())
+  }, [])
 
-  const newGoals = useSelector((globalState) => globalState.newGoals);
-  const results = useSelector((globalState) => globalState.goals);
+  const newGoals = useSelector((globalState) => globalState.newGoals)
+  const results = useSelector((globalState) => globalState.goals)
 
   const filteredResults = results.filter((goal) => {
-    const id = goal.id;
+    const id = goal.id
 
-    return newGoals.includes(id);
-  });
+    return newGoals.includes(id)
+  })
 
   return (
     isAuthenticated && (
@@ -32,7 +32,7 @@ const CompletedGoals = ({ todos, setTodos, filteredGoals }) => {
             <ul>
               {results.map((goals) => {
                 if (goals.completed == 1) {
-                  return <li key={goals.details}>{goals.details}</li>;
+                  return <li key={goals.details}>{goals.details}</li>
                 }
               })}
             </ul>
@@ -40,7 +40,7 @@ const CompletedGoals = ({ todos, setTodos, filteredGoals }) => {
         </div>
       </>
     )
-  );
-};
+  )
+}
 
-export default CompletedGoals;
+export default CompletedGoals

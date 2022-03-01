@@ -1,29 +1,29 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React from 'react'
+import { useDispatch } from 'react-redux'
 
-import { thunkAddNewGoal } from "../actions/goals";
+import { thunkAddNewGoal } from '../actions/goals'
 
 const submitGoalHandler = (evt) => {
-  evt.preventDefault();
+  evt.preventDefault()
   setTodos(
     [
       ...todos,
       {
         details: inputText,
-        completed: false,
-      },
+        completed: false
+      }
     ],
     dispatch(thunkAddNewGoal(inputText))
-  );
-  setInputText("");
-};
+  )
+  setInputText('')
+}
 
-function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
-  const dispatch = useDispatch();
+function Form ({ setInputText, todos, setTodos, inputText, setStatus }) {
+  const dispatch = useDispatch()
 
   const inputTextHandler = (evt) => {
-    setInputText(evt.target.value);
-  };
+    setInputText(evt.target.value)
+  }
 
   // const statusHandle = (evt) => {
   //   setStatus(evt.target.value);
@@ -48,7 +48,7 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
         </button>
       </form>
     </div>
-  );
+  )
 }
 
-export default Form;
+export default Form
