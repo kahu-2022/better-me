@@ -38,7 +38,7 @@ With Resolute this will help the user set their resolution in a measurable, atta
 
 ## Wireframe
 
-- to update the link
+<img src="server/public/wireframe.png" alt="Resolute Wireframe" width=500px/>
 
 <br>
 
@@ -53,7 +53,9 @@ With Resolute this will help the user set their resolution in a measurable, atta
 - As a user I want to :-
   - be shown a motivational quote when I navigate to the home page.
   - have the option to log out.
-  - be able to easily navigate to pages that allow me to view my current goals, view my completed goals and add a new goal.
+  - be able to easily navigate to pages that allow me to view my current goals
+  - be able to view my completed goals
+  - be able to add a new goal.
 
 3. Add Goals Page:
 
@@ -84,20 +86,34 @@ With Resolute this will help the user set their resolution in a measurable, atta
 
 <br>
 
-## API
+## Actions
 
-| Method | Endpoint | Usage | Response | Notes |
-| ------ | :------: | :---: | :------: | :---: |
-| GET    |          |       |          |       |
-| POST   |          |       |          |       |
-| PATCH  |          |       |          |       |
-| DEL    |          |       |          |       |
+#### goals
+
+| Type        | Data  | Purpose                                                   |
+| ----------- | ----- | --------------------------------------------------------- |
+| ADD_GOALS   | goals | add a goals from the db and store in redux                |
+| GET_GOALS   | goals | retrieve all goals from db and store in redux             |
+| DEL_GOALS   | goals | delete a goals from the db and remove from store in redux |
+| PATCH_GOALS | goals | update a goal from db and store in redux                  |
+
+<br>
+
+## API (Client - Server)
+
+| Method |       Endpoint       | Protected |         Usage          |                      Response                      |
+| ------ | :------------------: | :-------: | :--------------------: | :------------------------------------------------: |
+| GET    |   `/api/v1/goals`    |    Yes    |   Get all user goals   |             An Array of Goals Objects              |
+| POST   |   `/api/v1/goals`    |    Yes    |    Save user goals     |       An Array of Goals Objects saved to db        |
+| PATCH  | `/api/v1/goals/:id ` |    Yes    |    Edit user goals     | An Array of Goals Objects saved to db with changes |
+| DEL    | `/api/v1/goals/:id ` |    Yes    |   Delete user goals    |             An Array of Goals Objects              |
+| DEL    |  `/api/v1/quotes `   |    No     | Get inspiration quotes |             An Array of Quotes Objects             |
 
 <br>
 
 ## DB Diagram
 
-<img src="server/public/resolute-db.png" alt="DB Diagram"/>
+<img src="server/public/resolute-db.png" alt="DB Diagram" width=500px/>
 <br>
 
 ## Heroku
@@ -109,5 +125,8 @@ Link here
 
 ```
 npm install
+npm run knex migrate:latest
+npm run knex seed:run
 npm run dev
+
 ```
