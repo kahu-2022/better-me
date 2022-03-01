@@ -3,6 +3,8 @@ import React from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 // import Footer from './Footer'
 
+
+
 const HomeNoAuth = () => {
   const { isAuthenticated } = useAuth0()
 
@@ -18,12 +20,12 @@ const HomeNoAuth = () => {
 
           {/* To display goals */}
           <div>
-
+            <div className="goals-img"></div>
           </div>
 
           <div>
             <button className="goals-button-noauth">
-                    Submit
+                    View All Goals
             </button>
           </div>
         </div>
