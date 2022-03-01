@@ -10,15 +10,18 @@ const NavNoAuth = () => {
   return (
     !isAuthenticated && (
       <div className="nav-container">
-        <div>
-          <Link className="resolute-link" to='/'>Resolute. </Link>
+        <div >
+          <div>
+            <Link className="resolute-link" to='/'>Resolute. </Link>
+          </div>
         </div>
 
-        <div>
+        <div className="na-button-cont">
           <SignIn/>
         </div>
-
       </div>
+
+      
     )
   )
 }
