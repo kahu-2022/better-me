@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SetGoals from "./SetGoals";
 
+
 import { useAuth0 } from "@auth0/auth0-react";
 import { thunkGetAllGoals, thunkUpdateGoals } from "../actions/goals";
 
@@ -48,7 +49,7 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
                     <li key={goals.details}>
                       {goals.details}
                       <button onClick={() => submitCompleteHandler(goals.id)}>
-                        Test
+                      <i className="fas fa-check"></i>
                       </button>
                     </li>
                   );
@@ -57,7 +58,7 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
                     <li key={goals.details}>
                       <del>{goals.details}</del>
                       <button onClick={() => submitCompleteHandler(goals.id)}>
-                        Test
+                        <i className="fas fa-check"></i>
                       </button>
                     </li>
                   );

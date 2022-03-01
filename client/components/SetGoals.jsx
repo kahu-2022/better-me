@@ -33,7 +33,7 @@ function SetGoals ({ details, setTodos, todo, todos }) {
       <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
         {details}{"  "}
         <button onClick={deleteHandler} className="del-btn">
-        Delete!
+          <i className="fas fa-trash"></i>
         </button>
       </li>
       {/* <button onClick={completeHandler} className="complete-btn">

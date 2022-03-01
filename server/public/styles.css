@@ -331,6 +331,8 @@ margin-top: 100px;
 .goals-link {
     white-space: nowrap;
     overflow: hidden;
+    text-decoration: none;
+    color: #2C3333;
 }
 
 .quotes-container {
