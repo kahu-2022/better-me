@@ -102,14 +102,12 @@ With Resolute this will help the user set their resolution in a measurable, atta
 
 ## Heroku
 
+Link here
 <br>
 
 ## Setup
 
 ```
 npm install
-git checkout -b <branchname>
 npm run dev
 ```
-
-See the breathtaking designs [here](http://localhost:3000/designs/)
