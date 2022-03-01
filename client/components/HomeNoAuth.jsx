@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { useAuth0 } from '@auth0/auth0-react'
+// import Footer from './Footer'
 
 const HomeNoAuth = () => {
   const { isAuthenticated } = useAuth0()
@@ -26,6 +27,8 @@ const HomeNoAuth = () => {
             </button>
           </div>
         </div>
+
+        {/* <Footer className="footerNA"/> */}
 
       </>
     )

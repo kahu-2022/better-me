@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SetGoals from "./SetGoals";
 import Quotes from "./Quotes";
+// import Footer from "./Footer";
 
 import { thunkAddNewGoal, thunkGetAllGoals } from "../actions/goals";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -79,19 +80,20 @@ function HomeAuth() {
 
         <div className="goals-card">
           {/* To display goals */}
-          <div>
+          <div className="goals-container">
             <div className="todo-container">
-              <ul className="todo-list"></ul>
-              {filteredResults.map((todo) => (
-                <SetGoals
-                  key={todo.id}
-                  setTodos={setTodos}
-                  todos={todos}
-                  todo={todo}
-                  details={todo.details}
-                  filteredGoals={filteredGoals}
-                />
-              ))}
+              <ul className="todo-list">
+                {filteredResults.map((todo) => (
+                  <SetGoals
+                    key={todo.id}
+                    setTodos={setTodos}
+                    todos={todos}
+                    todo={todo}
+                    details={todo.details}
+                    filteredGoals={filteredGoals}
+                  />
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -103,9 +105,10 @@ function HomeAuth() {
             </button>
           </div>
         </div>
-        <footer>
-          <Quotes />
-        </footer>
+
+        <Quotes />
+
+        {/* <Footer className="footer"/> */}
       </>
     )
   );
