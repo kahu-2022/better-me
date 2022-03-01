@@ -3,9 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import SetGoals from "./SetGoals";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { thunkGetAllGoals, thunkUpdateGoals } from "../actions/goals";
+import {
+  thunkGetAllGoals,
+  thunkUpdateGoals,
+  thunkDelGoal,
+} from "../actions/goals";
 
-const MyGoals = ({ todos, setTodos, filteredGoals }) => {
+const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
   const dispatch = useDispatch();
   const [complete, setComplete] = useState(!complete);
 
@@ -17,11 +21,11 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
   const newGoals = useSelector((globalState) => globalState.newGoals);
   const results = useSelector((globalState) => globalState.goals);
 
-  // const filteredResults = results.filter((goal) => {
-  //   const id = goal.id;
+  const filteredResults = results.filter((goal) => {
+    const id = goal.id;
 
-  //   return newGoals.includes(id);
-  // });
+    return newGoals.includes(id);
+  });
 
   const submitCompleteHandler = (id) => {
     // evt.preventDefault();
@@ -30,6 +34,11 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
     dispatch(thunkUpdateGoals(id, complete));
   };
 
+  const deleteHandler = (id) => {
+    console.log("deltodo", typeof id);
+    //   // setTodos(todos.filter((elem) => elem.details !== todo.details));
+    dispatch(thunkDelGoal(id));
+  };
   return (
     isAuthenticated && (
       <>
@@ -49,6 +58,9 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
                       {goals.details}
                       <button onClick={() => submitCompleteHandler(goals.id)}>
                         Test
+                      </button>
+                      <button onClick={() => deleteHandler(goals.id)}>
+                        Del
                       </button>
                     </li>
                   );
