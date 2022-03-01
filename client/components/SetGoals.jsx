@@ -31,14 +31,15 @@ function SetGoals ({ details, setTodos, todo, todos }) {
   return (
     <div className="todo">
       <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-        {details}
+        {details}{"  "}
+        <button onClick={deleteHandler} className="del-btn">
+        Delete!
+        </button>
       </li>
-      <button onClick={completeHandler} className="complete-btn">
+      {/* <button onClick={completeHandler} className="complete-btn">
         <i className="fas fa-check"></i>
-      </button>
-      <button onClick={deleteHandler} className="trash-btn">
-        <i className="fas fa-trash"></i>
-      </button>
+      </button> */}
+      
     </div>
   )
 }

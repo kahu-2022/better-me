@@ -20,6 +20,7 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
 
     return newGoals.includes(id);
   });
+
   return (
     isAuthenticated && (
       <>
@@ -29,8 +30,8 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
           </h3>
 
           {/* To display goals */}
-          <div>
-            <ul>
+          <div className="myGoalsContainer">
+            <ul className="addedgoals">
               {results.map((goals) => {
                 if (goals.completed == 0) {
                   return <li>{goals.details}</li>;
@@ -43,14 +44,6 @@ const MyGoals = ({ todos, setTodos, filteredGoals }) => {
                 }
               })}
             </ul>
-
-            {/* <ul>
-              {results.map((goals) => (
-                <li>
-                  {goals.details} {goals.completed}
-                </li>
-              ))}
-            </ul> */}
           </div>
         </div>
       </>

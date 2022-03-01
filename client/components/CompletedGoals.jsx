@@ -28,8 +28,8 @@ const CompletedGoals = ({ todos, setTodos, filteredGoals }) => {
           </h3>
 
           {/* To display goals */}
-          <div>
-            <ul>
+          <div className="myGoalsContainer">
+            <ul className="addedgoals">
               {results.map((goals) => {
                 if (goals.completed == 1) {
                   return <li key={goals.details}>{goals.details}</li>;

@@ -7,6 +7,10 @@ body {
     min-height: 100vh; 
 }
 
+h3 {
+    color:#2C3333;
+}
+
 .auth-button{
 background-color: transparent;
 color:#2C3333;
@@ -45,19 +49,50 @@ border-radius: 20px;
 
 .todo-container {
     /* overflow: scroll; */
-    display:flex;
-    position: relative;
+    display:flexbox;
+    /* position: relative; */
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: center;
     /* background-color: whitesmoke; */
     width: 400px;
     height: 285px;
+    display: inline-block;
+    text-align: center;
+    
 }
 
 .todo-list {
     display: inline-block;
+    color:#2C3333;
+    padding:0px;
+    margin:0px;
     
+}
+
+.addedgoals {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    color:#2C3333;;
+    /* justify-content: center;
+    align-self: center; */
+   
+}
+.myGoalsContainer {
+    display:flexbox;
+    /* position:relative; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: center;
+    /* background-color: whitesmoke; */
+    width: 400px;
+    height: 285px;
+    display: inline-block;
+    text-align: center;
+    
+    
+
 }
 
 .noauth-button{
@@ -300,7 +335,12 @@ margin-top: 100px;
 
 .quotes-container {
     text-align: center;
-    font-weight: lighter;
+    font-weight:lighter;
+    z-index: 1;
+}
+
+ul {
+    list-style: none;
 }
 
 
