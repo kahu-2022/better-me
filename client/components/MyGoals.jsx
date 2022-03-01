@@ -59,7 +59,9 @@ const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
                       <button onClick={() => submitCompleteHandler(goals.id)}>
                         Test
                       </button>
-                      <button onClick={deleteHandler}>Del</button>
+                      <button onClick={() => deleteHandler(goals.id)}>
+                        Del
+                      </button>
                     </li>
                   );
                 } else {
