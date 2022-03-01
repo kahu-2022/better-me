@@ -1,4 +1,110 @@
-# TODO App
+# Resolute
+
+ˈrɛzəluːt
+<br>
+meaning : admirably purposeful, determined, and unwavering.
+
+## Final Project
+
+Resolute is a New Year Resolution app that helps you keep track of your goals and resolutions.
+New Year's resolutions are essence and should be set with the right mindset and attitude.
+With Resolute this will help the user set their resolution in a measurable, attainable and realistic form. So ditch the pen and paper and try out Resolute.
+
+<br>
+
+## The Tech
+
+- React
+- Redux
+- Express
+- Knex.js (SQL)
+- External API
+- Auth0
+
+<br>
+
+## Roles
+
+| Roles         | Name                          |
+| ------------- | ----------------------------- |
+| Product Owner | Geoffrey Sciascia             |
+| Scrum Master  | Sam WP                        |
+| Git Lead      | Evelyn Tan                    |
+| Backend Team  | Evelyn Tan and Jatinder Singh |
+| Frontend Team | Sam WP and Geoffrey Sciascia  |
+| Vibe Checker  | Jatinder Singh                |
+
+<br>
+
+## Wireframe
+
+- to update the link
+
+<br>
+
+## User Stories
+
+1. Login page:
+
+- As a user I want to be able to log in or sign up.
+
+2. Home Page:
+
+- As a user I want to :-
+  - be shown a motivational quote when I navigate to the home page.
+  - have the option to log out.
+  - be able to easily navigate to pages that allow me to view my current goals, view my completed goals and add a new goal.
+
+3. Add Goals Page:
+
+- As a user I want to :-
+  - be able to add multiple goals.
+  - be able to view the goals I am adding before submitting them.
+  - be able to view, edit and delete the goals that I am adding.
+  - be able to navigate to other pages.
+  - have the option to log out.
+  - be able to navigate to a page that allows me to view a list of all my goals (including the ones I just added).
+
+4. My Goals Page:
+
+- As a user I want to :-
+  - be able to view a list of all of my goals.
+  - be able to navigate to other pages.
+  - be able to edit and delete my goals.
+  - have the option to log out.
+  - be able to mark a goal as complete and have it added to my list of completed goals.
+
+5. Complete Goals Page:
+
+- As a user I want to :-
+  - be able to view a list of all my completed goals.
+  - be able to navigate to other pages.
+  - have the option to log out.
+  - have the option to delete my completed goals?
+
+<br>
+
+## API
+
+| Method | Endpoint | Usage | Response | Notes |
+| ------ | :------: | :---: | :------: | :---: |
+| GET    |          |       |          |       |
+| POST   |          |       |          |       |
+| PATCH  |          |       |          |       |
+| DEL    |          |       |          |       |
+
+<br>
+
+## DB Diagram
+
+<img src="server/public/resolute-db.png" alt="DB Diagram"/>
+<br>
+
+## Heroku
+
+<br>
+
+## Setup
 
 ```
 npm install
@@ -7,24 +113,3 @@ npm run dev
 ```
 
 See the breathtaking designs [here](http://localhost:3000/designs/)
-
-## Notes
-
-A few notes to keep you out of trouble:
-- When running knex, run `npm run knex <command>`, e.g. `npm run knex migrate:latest` rather than using `npx`
-- When running webpack, run `npm run webpack <extra commands>`, e.g. `npm run webpack`, rather than using `npx`
-
-## How to start
-
-Here's a list of steps in case they are useful. You can build in any order you like though ;)
-
-1.  Design a database to store a list of tasks, e.g. task details, priority, completed yes/no
-1.  Build the migrations and seed data
-1.  Build an API to list, add, update and delete
-1.  Test your API with Postman/Insomnia
-1.  Build React Components from static html
-1.  Design Redux Global State (think of it like a JS object)
-1.  Build Redux Reducers (the properties or keys of your state design are reducers, the values are hard-code static data as initialState)
-1.  Build API Client in the front end
-1.  Build Thunk Actions to get task from the API
-1.  Build Redux Actions to save task data from the API (remove hard-code initialState)
