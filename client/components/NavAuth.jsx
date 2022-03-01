@@ -32,7 +32,6 @@ const NavAuth = () => {
             <Link className="goals-link" to='/completed' style={ linkStyle}>Completed Goals</Link>
           </div>
         </div>
-        
 
         <div className="na-button-cont">
           <SignOut />

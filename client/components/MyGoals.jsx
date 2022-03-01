@@ -1,44 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import SetGoals from "./SetGoals";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react'
 import {
   thunkGetAllGoals,
   thunkUpdateGoals,
-  thunkDelGoal,
-} from "../actions/goals";
+  thunkDelGoal
+} from '../actions/goals'
 
-const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
-  const dispatch = useDispatch();
-  const [complete, setComplete] = useState(!complete);
+const MyGoals = () => {
+  const dispatch = useDispatch()
+  const [complete, setComplete] = useState(!complete)
 
   useEffect(() => {
-    dispatch(thunkGetAllGoals());
-  }, [complete]);
+    dispatch(thunkGetAllGoals())
+  }, [complete])
 
-  const { isAuthenticated } = useAuth0();
-  const newGoals = useSelector((globalState) => globalState.newGoals);
-  const results = useSelector((globalState) => globalState.goals);
-
-  const filteredResults = results.filter((goal) => {
-    const id = goal.id;
-
-    return newGoals.includes(id);
-  });
+  const { isAuthenticated } = useAuth0()
+  const results = useSelector((globalState) => globalState.goals)
 
   const submitCompleteHandler = (id) => {
-    // evt.preventDefault();
-    console.log("submit", id);
-    setComplete(!complete);
-    dispatch(thunkUpdateGoals(id, complete));
-  };
+    setComplete(!complete)
+    dispatch(thunkUpdateGoals(id, complete))
+  }
 
   const deleteHandler = (id) => {
-    console.log("deltodo", typeof id);
-    //   // setTodos(todos.filter((elem) => elem.details !== todo.details));
-    dispatch(thunkDelGoal(id));
-  };
+    dispatch(thunkDelGoal(id))
+  }
   return (
     isAuthenticated && (
       <>
@@ -51,7 +39,7 @@ const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
           <div className="myGoalsContainer">
             <ul className="addedgoals">
               {results.map((goals) => {
-                console.log(goals);
+                console.log(goals)
                 if (goals.completed === 0) {
                   return (
                     <li key={goals.details}>
@@ -63,7 +51,7 @@ const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
                         <i className="fas fa-trash"></i>
                       </button>
                     </li>
-                  );
+                  )
                 } else {
                   return (
                     <li key={goals.details}>
@@ -72,7 +60,7 @@ const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
                         <i className="fas fa-check"></i>
                       </button>
                     </li>
-                  );
+                  )
                 }
               })}
             </ul>
@@ -80,7 +68,7 @@ const MyGoals = ({ todo, todos, setTodos, filteredGoals }) => {
         </div>
       </>
     )
-  );
-};
+  )
+}
 
-export default MyGoals;
+export default MyGoals
