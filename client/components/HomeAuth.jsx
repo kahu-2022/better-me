@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import SetGoals from "./SetGoals";
 import Quotes from "./Quotes";
 // import Footer from "./Footer";
@@ -16,7 +17,6 @@ function HomeAuth() {
   const [status, setStatus] = useState("all");
   const [inputText, setInputText] = useState(""); // state for form to add new goal
   const [filteredGoals, setFilteredGoals] = useState([]);
-  
 
   // On load when the app runs
   useEffect(() => {
@@ -83,34 +83,32 @@ function HomeAuth() {
           <div className="goals-container">
             <div className="todo-container">
               <ul className="todo-list">
-              {filteredResults.map((todo) => (
-                <SetGoals
-                  key={todo.id}
-                  setTodos={setTodos}
-                  todos={todos}
-                  todo={todo}
-                  details={todo.details}
-                  filteredGoals={filteredGoals}
-                />
-              ))}
+                {filteredResults.map((todo) => (
+                  <SetGoals
+                    key={todo.id}
+                    setTodos={setTodos}
+                    todos={todos}
+                    todo={todo}
+                    details={todo.details}
+                    filteredGoals={filteredGoals}
+                  />
+                ))}
               </ul>
             </div>
           </div>
-        
-        <button
-            onClick={submitGoalHandler}
-            type="submit"
-            className="goals-card-button"
-        >
-            Submit
-        </button>
-        
+
+          <div>
+            <button type="submit" className="goals-card-button">
+              <Link className="goals-link" to="/mygoals">
+                Submit
+              </Link>
+            </button>
+          </div>
         </div>
-          
+
         <Quotes />
 
         {/* <Footer className="footer"/> */}
-        
       </>
     )
   );
