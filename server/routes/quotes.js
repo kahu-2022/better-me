@@ -2,8 +2,6 @@ const express = require('express')
 
 const router = express.Router()
 
-// Api Route
-
 router.get('/', (req, res) => {
   return req
     .get('https://type.fit/api/quotes')
