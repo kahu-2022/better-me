@@ -64,8 +64,8 @@ export function thunkAddNewGoal(goals) {
     postNewGoals(newGoals)
       .then((goalsArr) => {
         console.log("goalsArr", goalsArr);
-        const goalsObj = goalsArr[0];
-        newGoals.id = goalsObj.id;
+        const goalsId = goalsArr[0];
+        newGoals.id = goalsId;
         dispatch(addGoals(newGoals));
         return null;
       })
