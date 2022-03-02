@@ -13,7 +13,7 @@ function deleteGoals(id, db = connection) {
 }
 
 function updateGoals(id, newStatus, db = connection) {
-  console.log("Db", id, newStatus);
+  console.log("Db", typeof id, newStatus);
   return db("goals").select().where("id", id).update({ completed: newStatus });
 }
 
