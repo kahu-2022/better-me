@@ -1,7 +1,7 @@
 const connection = require("./connection");
 
 function addGoals(goals, db = connection) {
-  return db("goals").insert(goals, "id");
+  return db("goals").insert(goals);
 }
 
 function getGoals(db = connection) {
