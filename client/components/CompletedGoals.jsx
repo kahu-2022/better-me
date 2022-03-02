@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 import { thunkGetAllGoals } from '../actions/goals'
+import Footer from './Footer'
 
 const CompletedGoals = () => {
   const { isAuthenticated } = useAuth0()
@@ -31,6 +32,8 @@ const CompletedGoals = () => {
             </ul>
           </div>
         </div>
+
+        <Footer />
       </>
     )
   )

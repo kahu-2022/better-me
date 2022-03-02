@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import SetGoals from './SetGoals'
 import Quotes from './Quotes'
 // import Footer from "./Footer";
-
+import HomeFooter from './HomeFooter'
 import { thunkAddNewGoal, thunkGetAllGoals } from '../actions/goals'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -108,6 +108,8 @@ function HomeAuth () {
 
         <Quotes />
 
+        <HomeFooter/>
+        
       </>
     )
   )
