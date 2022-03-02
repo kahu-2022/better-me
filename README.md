@@ -1,13 +1,13 @@
 # Resolute
 
-ˈrɛzəluːt
+Resolute
 <br>
 meaning : admirably purposeful, determined, and unwavering.
 
 ## Final Project
 
 Resolute is a New Year Resolution app that helps you keep track of your goals and resolutions.
-New Year's resolutions are essence and should be set with the right mindset and attitude.
+New Year's resolutions are essential and should be set with the right mindset and attitude.
 With Resolute this will help the user set their resolution in a measurable, attainable and realistic form. So ditch the pen and paper and try out Resolute.
 
 <br>
@@ -92,10 +92,10 @@ With Resolute this will help the user set their resolution in a measurable, atta
 
 | Type        | Data  | Purpose                                                   |
 | ----------- | ----- | --------------------------------------------------------- |
-| ADD_GOALS   | goals | add a goals from the db and store in redux                |
+| ADD_GOALS   | goals | add a goal to the db and store in redux                |
 | GET_GOALS   | goals | retrieve all goals from db and store in redux             |
-| DEL_GOALS   | goals | delete a goals from the db and remove from store in redux |
-| PATCH_GOALS | goals | update a goal from db and store in redux                  |
+| DEL_GOALS   | goals | delete a goal from the db and remove from store in redux |
+| PATCH_GOALS | goals | update a goal in the db and store in redux                  |
 
 <br>
 
@@ -103,11 +103,11 @@ With Resolute this will help the user set their resolution in a measurable, atta
 
 | Method |       Endpoint       | Protected |         Usage          |                      Response                      |
 | ------ | :------------------: | :-------: | :--------------------: | :------------------------------------------------: |
-| GET    |   `/api/v1/goals`    |    Yes    |   Get all user goals   |             An Array of Goals Objects              |
-| POST   |   `/api/v1/goals`    |    Yes    |    Save user goals     |       An Array of Goals Objects saved to db        |
-| PATCH  | `/api/v1/goals/:id ` |    Yes    |    Edit user goals     | An Array of Goals Objects saved to db with changes |
+| GET    |   `/api/v1/goals`    |    Yes    |   Get all user goals   |             An Array of Goal Objects              |
+| POST   |   `/api/v1/goals`    |    Yes    |    Save user goals     |       An Array of Goal Objects saved to db        |
+| PATCH  | `/api/v1/goals/:id ` |    Yes    |    Edit user goals     | An Array of Goal Objects saved to db with changes |
 | DEL    | `/api/v1/goals/:id ` |    Yes    |   Delete user goals    |             An Array of Goals Objects              |
-| DEL    |  `/api/v1/quotes `   |    No     | Get inspiration quotes |             An Array of Quotes Objects             |
+| GET    |  `/api/v1/quotes `   |    No     | Get inspirational quotes |             An Array of Quotes Objects             |
 
 <br>
 

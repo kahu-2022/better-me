@@ -1,5 +1,6 @@
-const server = require('./server')
 const path = require('path')
+
+const server = require('./server')
 
 const PORT = process.env.PORT || 3000
 

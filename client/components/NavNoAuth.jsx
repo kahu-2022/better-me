@@ -1,8 +1,9 @@
 import React from 'react'
-import SignIn from './SignIn'
 
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
+
+import SignIn from './SignIn'
 
 const NavNoAuth = () => {
   const { isAuthenticated } = useAuth0()
@@ -20,7 +21,6 @@ const NavNoAuth = () => {
           <SignIn/>
         </div>
       </div>
-
     )
   )
 }

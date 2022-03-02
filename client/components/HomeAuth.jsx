@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SetGoals from './SetGoals'
 import Quotes from './Quotes'
-// import Footer from "./Footer";
+
 import HomeFooter from './HomeFooter'
 import { thunkAddNewGoal, thunkGetAllGoals } from '../actions/goals'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -15,10 +15,9 @@ function HomeAuth () {
   const newGoals = useSelector((globalState) => globalState.newGoals)
   const [todos, setTodos] = useState([])
   const [status, setStatus] = useState('all')
-  const [inputText, setInputText] = useState('') // state for form to add new goal
+  const [inputText, setInputText] = useState('')
   const [filteredGoals, setFilteredGoals] = useState([])
 
-  // On load when the app runs
   useEffect(() => {
     dispatch(thunkGetAllGoals())
   }, [])
@@ -51,7 +50,6 @@ function HomeAuth () {
     return newGoals.includes(id)
   })
 
-  // function to keep completed task and display when selected
   const filterHandler = () => {
     switch (status) {
       case 'completed':
@@ -79,7 +77,6 @@ function HomeAuth () {
         </form>
 
         <div className="goals-card">
-          {/* To display goals */}
           <div className="goals-container">
             <div className="todo-container">
               <ul className="todo-list">
@@ -109,7 +106,6 @@ function HomeAuth () {
         <Quotes />
 
         <HomeFooter/>
-        
       </>
     )
   )

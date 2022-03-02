@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Footer from './Footer'
 
+import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
+
 import {
   thunkGetAllGoals,
   thunkUpdateGoals,
   thunkDelGoal
 } from '../actions/goals'
+
+import Footer from './Footer'
 
 const MyGoals = () => {
   const dispatch = useDispatch()
@@ -36,7 +38,6 @@ const MyGoals = () => {
             <u>My Goals</u>
           </h3>
 
-          {/* To display goals */}
           <div className="myGoalsContainer">
             <ul className="addedgoals">
               {results.map((goals) => {
@@ -67,6 +68,7 @@ const MyGoals = () => {
             </ul>
           </div>
         </div>
+
         <Footer />
       </>
     )

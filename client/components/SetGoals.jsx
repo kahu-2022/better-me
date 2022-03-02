@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { useDispatch } from 'react-redux'
+
 import { thunkDelGoal } from '../actions/goals'
 
 function SetGoals ({ details, todo }) {

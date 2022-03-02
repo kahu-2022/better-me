@@ -10,7 +10,6 @@ const reducer = (state = [], action) => {
       return state.filter((goals) => goals.id !== action.id)
 
     case 'PATCH_GOALS':
-      console.log('reduce', action.id, action.newStatus)
       return state.map((goal) => {
         if (goal.id === action.id) {
           goal.completed = action.newStatus

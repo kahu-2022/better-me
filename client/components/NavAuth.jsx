@@ -1,10 +1,9 @@
 import React from 'react'
-// import SignIn from './SignIn'
-import SignOut from './SignOut'
+
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
-// import MyGoals from './MyGoals'
-// import CompletedGoals from './CompletedGoals'
+
+import SignOut from './SignOut'
 
 const NavAuth = () => {
   const { isAuthenticated } = useAuth0()
@@ -18,7 +17,6 @@ const NavAuth = () => {
     isAuthenticated && (
 
       <div className="nav-container">
-
         <div>
           <Link className="resolute-link" to='/'>Resolute. </Link>
         </div>
@@ -36,11 +34,7 @@ const NavAuth = () => {
         <div className="na-button-cont">
           <SignOut />
         </div>
-
-      
       </div>
-
-      
     )
   )
 }
