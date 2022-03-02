@@ -85,7 +85,7 @@ border-radius: 20px;
     display:flex;
     justify-content: right;
     right: 29px;
-    position:fixed;
+    position:absolute;
 }
 
 .noauth-button{
@@ -144,7 +144,7 @@ margin-left: 30px;
 }
 
 .goalInput-text-box {
-width: 97.6%;
+width: 98%;
 height: 55px;
 margin-top: 0px;
 background-color: rgba(245, 245, 245, 0.454);
@@ -157,7 +157,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
 }
 
 .goalInput-NoAuth:hover {
-width: 97.6%;
+width: 98%;
 height: 55px;
 background-color: rgba(245, 245, 245, 0.454);
 margin-left: 16px;
@@ -170,7 +170,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
 }
 
 .goalInput-NoAuth {
-width: 97.6%;
+width: 98%;
 height: 55px;
 margin-top: 0px;
 background-color: rgba(245, 245, 245, 0.454);
@@ -184,7 +184,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
 }
 
 .goalInput-text-box:hover {
-width: 97.6%;
+width: 98%;
 height: 55px;
 background-color: rgba(245, 245, 245, 0.454);
 margin-left: 16px;
@@ -272,7 +272,7 @@ font-size: 14px;
 color: #2C3333;
 text-decoration: none !important;
 text-align: center;
-margin-top: 160px;
+/* margin-top: 160px; */
 font-weight:500;
 }
 
@@ -281,16 +281,19 @@ font-size: 14px;
 color: #2C3333;
 text-decoration: none !important;
 text-align: center;
-margin-top: 145px;
+/* margin-top: 145px; */
+
 }
 
 .footer-quotes {
     display: flex;
-    margin-left: 1145px;
+    font-family: 'Quicksand', sans-serif;
+    margin-left: 1295px;
     height: 200px;
     width:280px;
-    
+    font-size: 20px;
     margin-top: 70px;
+    font-weight:bold;
     
 }
 
@@ -311,5 +314,7 @@ ul {
     list-style: none;
 }
 
-
+.spacing-div {
+    height: 250px;
+}
  
