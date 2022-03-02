@@ -11,7 +11,7 @@ function SetGoals ({ details, todo }) {
 
   return (
     <div className="todo">
-      <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+      <li className="list-item" className={`todo-item ${todo.completed ? 'completed' : ''}`}>
         {details}{'  '}
         <button onClick={deleteHandler} className="del-btn">
           <i className="fas fa-trash"></i>

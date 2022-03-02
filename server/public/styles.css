@@ -54,6 +54,7 @@ border-radius: 20px;
     height: 285px;
     display: inline-block;
     text-align: center;
+    line-height: 28px;
 }
 
 .todo-list {
@@ -79,6 +80,7 @@ border-radius: 20px;
     height: 285px;
     display: inline-block;
     text-align: center;
+    line-height: 28px;
 }
 
 .na-button-cont {
@@ -288,12 +290,14 @@ text-align: center;
 .footer-quotes {
     display: flex;
     font-family: 'Quicksand', sans-serif;
-    margin-left: 1295px;
+    /* margin-left: 1425px; */
+    position:absolute;
     height: 200px;
     width:280px;
     font-size: 20px;
     margin-top: 70px;
     font-weight:bold;
+    right: 9%;
     
 }
 
@@ -318,3 +322,21 @@ ul {
     height: 250px;
 }
  
+.homefooter a {
+    font-size: 14px;
+    color: #2C3333;
+    text-decoration: none !important;
+    text-align: center;
+    /* margin-top: 160px; */
+    font-weight:500;
+}
+    
+.homefooter {
+    font-size: 14px;
+    color: #2C3333;
+    text-decoration: none !important;
+    text-align: center;
+    margin-top: 350px;
+    
+}
+

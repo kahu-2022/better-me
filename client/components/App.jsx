@@ -7,7 +7,7 @@ import HomeAuth from './HomeAuth'
 import HomeNoAuth from './HomeNoAuth'
 import CompletedGoals from './CompletedGoals'
 import MyGoals from './MyGoals'
-import Footer from './Footer'
+// import Footer from './Footer'
 
 import Divider from '@mui/material/Divider'
 
@@ -27,7 +27,7 @@ function App () {
         <Route path='/completed' element={<CompletedGoals />} />
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
 
     </>
   )
