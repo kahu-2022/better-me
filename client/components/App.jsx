@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import NavNoAuth from './NavNoAuth'
@@ -8,10 +8,16 @@ import HomeNoAuth from './HomeNoAuth'
 import CompletedGoals from './CompletedGoals'
 import MyGoals from './MyGoals'
 import Footer from './Footer'
-
+import oneSignal from 'react-onesignal'
 import Divider from '@mui/material/Divider'
 
 function App () {
+
+   useEffect(() => {
+     oneSignal.init({appID: '49336b71-9a65-48ee-90bb-a3cd7c715bbe'})
+   })
+
+
   return (
     <>
       <NavAuth />

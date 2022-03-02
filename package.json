@@ -96,6 +96,7 @@
     "knex": "^1.0.3",
     "pg": "^8.7.3",
     "react-bootstrap": "^2.1.2",
+    "react-onesignal": "^2.0.0-beta1",
     "snakecase-keys": "^5.1.2",
     "styled-components": "^5.3.3",
     "superagent": "^6.1.0"
