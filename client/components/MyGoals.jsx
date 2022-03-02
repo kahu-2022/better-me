@@ -45,10 +45,10 @@ const MyGoals = () => {
                   return (
                     <li key={goals.details}>
                       {goals.details}
-                      <button onClick={() => submitCompleteHandler(goals.id)}>
+                      <button className="del-btn" onClick={() => submitCompleteHandler(goals.id)}>
                         <i className="fas fa-check"></i>
                       </button>
-                      <button onClick={() => deleteHandler(goals.id)}>
+                      <button className="del-btn" onClick={() => deleteHandler(goals.id)}>
                         <i className="fas fa-trash"></i>
                       </button>
                     </li>
@@ -57,7 +57,7 @@ const MyGoals = () => {
                   return (
                     <li key={goals.details}>
                       <del>{goals.details}</del>
-                      <button onClick={() => submitCompleteHandler(goals.id)}>
+                      <button className="del-btn" onClick={() => submitCompleteHandler(goals.id)}>
                         <i className="fas fa-check"></i>
                       </button>
                     </li>

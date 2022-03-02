@@ -55,6 +55,7 @@ border-radius: 20px;
     display: inline-block;
     text-align: center;
     line-height: 28px;
+    padding: 0px;
 }
 
 .todo-list {
@@ -340,3 +341,7 @@ ul {
     
 }
 
+.del-btn {
+    background-color: transparent;
+    border: transparent;
+}

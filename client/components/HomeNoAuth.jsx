@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from './Footer'
 
+
 import { useAuth0 } from '@auth0/auth0-react'
 
 const HomeNoAuth = () => {
@@ -15,15 +16,9 @@ const HomeNoAuth = () => {
         </form>
 
         <div className="goals-card">
-
-          {/* To display goals */}
-          <div>
-            <div className="goals-img"></div>
-          </div>
-
           <div>
             <button className="goals-button-noauth">
-                    View All Goals
+              View All Goals
             </button>
           </div>
         </div>
