@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux'
 
-// import stuff from './stuff'
+import goals from './goals'
+import newGoals from './newGoals'
 
 export default combineReducers({
-  // stuff
+  goals,
+  newGoals
 })
