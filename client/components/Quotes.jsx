@@ -27,7 +27,7 @@ function Quotes () {
   return (
     <div className="footer-quotes">
       <h4 className="quotes-container">
-        <strong>`&quot;` </strong>{quotes.text}<strong> `&quot;`</strong><br></br> <em>-{quotes.author}</em>
+        <strong>" </strong>{quotes.text}<strong> "</strong><br></br> <em>-{quotes.author}</em>
       </h4>
     </div>
   )
